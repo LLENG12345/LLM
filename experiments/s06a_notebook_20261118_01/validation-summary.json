@@ -1,0 +1,102 @@
+{
+  "run_id": "s06a_notebook_20261118_01",
+  "baseline_run_id": "s04_baseline_v1_20261118_01",
+  "reference_full_run": "s05_full_baseline_20261118_01",
+  "state_1_local_notebook": "passed",
+  "state_2_kaggle_saved_run": "not executed",
+  "state_3_kaggle_scored_submission": "not executed",
+  "kaggle_public_score": null,
+  "v1_0": "not achieved",
+  "execution": "isolated ordinary Python -I; not Jupyter, container or Kaggle",
+  "notebook_sha256": "adcd730607e42e00721bbafa6b0002696fa7de08bb126c488927a90e61a631db",
+  "code_cells": 7,
+  "cells": 15,
+  "actual_parameters_equal_s04": true,
+  "s05_labels_and_all_scores_equal": true,
+  "n_train": 2699,
+  "n_prompts": 150,
+  "n_test": 3,
+  "fit_seconds": 9.920737199998257,
+  "prediction_seconds": 0.01644750000195927,
+  "fit_warning_count": 0,
+  "prediction_warning_count": 0,
+  "python": "3.12.10",
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "pyarrow": "26.0.1"
+  },
+  "different_runtime_test_rows": 17,
+  "different_test_fit_seconds": 19.74223669999992,
+  "different_test_predict_seconds": 0.09034199999950943,
+  "variable_counts": [
+    {
+      "rows": 0,
+      "batch_size": 128,
+      "seconds": 0.0459417999991274
+    },
+    {
+      "rows": 1,
+      "batch_size": 128,
+      "seconds": 0.026253399999404792
+    },
+    {
+      "rows": 257,
+      "batch_size": 128,
+      "seconds": 0.8583417999980156
+    },
+    {
+      "rows": 4000,
+      "batch_size": 128,
+      "seconds": 13.226908699998603
+    }
+  ],
+  "changed_training_version_rejected": true,
+  "regressions": {
+    "s01": {
+      "exit_code": 0,
+      "seconds": 4.861553200000344
+    },
+    "s02": {
+      "exit_code": 0,
+      "seconds": 2.0802812000001722
+    },
+    "s03": {
+      "exit_code": 0,
+      "seconds": 6.26667290000114
+    },
+    "s04-check": {
+      "exit_code": 0,
+      "seconds": 4.587639199999103
+    },
+    "s04-test": {
+      "exit_code": 0,
+      "seconds": 7.522320399999444
+    },
+    "s05-check": {
+      "exit_code": 0,
+      "seconds": 5.018467999998393
+    },
+    "s05-test": {
+      "exit_code": 0,
+      "seconds": 23.75462730000072
+    }
+  },
+  "protected_files_unchanged": 159,
+  "preserved_submission": "artifacts/s06a/validation-r6/official/submission.parquet",
+  "submission_sha256": "12209416456505034751a82b190ae037e1b026164a149e666b2990ee1ec005fd",
+  "guards": {
+    "network_denial_probe_pass": true,
+    "repository_denial_probe_pass": true,
+    "notebook_network_attempts": 0,
+    "notebook_repository_attempts": 0,
+    "note": "Python audit guards, not an OS/container sandbox; installed environment packages allowed"
+  },
+  "blocked_system_version_probes": 3,
+  "child_processes_executed_in_worker": 0,
+  "final_notebook_code_matches_executed": true,
+  "official_rules": "Official indexed Overview/Data confirmed; Rules/account/team/quota remain unverified",
+  "source_manifest": "notebooks/99_submission.sources.json"
+}

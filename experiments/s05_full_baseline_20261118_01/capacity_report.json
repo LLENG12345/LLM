@@ -1,0 +1,63 @@
+{
+  "run_id": "s05_full_baseline_20261118_01",
+  "measurements": [
+    {
+      "rows": 0,
+      "batch_size": 128,
+      "total_characters": 0,
+      "predict_and_decision_seconds": 0.0015448000012838747,
+      "rss_before_bytes": 284250112,
+      "rss_after_bytes": 289800192,
+      "process_lifetime_peak_wset_bytes": 362819584
+    },
+    {
+      "rows": 1,
+      "batch_size": 128,
+      "total_characters": 1160,
+      "predict_and_decision_seconds": 0.009580300000379793,
+      "rss_before_bytes": 289800192,
+      "rss_after_bytes": 290504704,
+      "process_lifetime_peak_wset_bytes": 362819584
+    },
+    {
+      "rows": 3,
+      "batch_size": 128,
+      "total_characters": 2186,
+      "predict_and_decision_seconds": 0.015038300000014715,
+      "rss_before_bytes": 290504704,
+      "rss_after_bytes": 290676736,
+      "process_lifetime_peak_wset_bytes": 362819584
+    },
+    {
+      "rows": 17,
+      "batch_size": 128,
+      "total_characters": 10916,
+      "predict_and_decision_seconds": 0.05191040000136127,
+      "rss_before_bytes": 290676736,
+      "rss_after_bytes": 291332096,
+      "process_lifetime_peak_wset_bytes": 362819584
+    },
+    {
+      "rows": 257,
+      "batch_size": 128,
+      "total_characters": 201020,
+      "predict_and_decision_seconds": 0.8049420999996073,
+      "rss_before_bytes": 291807232,
+      "rss_after_bytes": 293703680,
+      "process_lifetime_peak_wset_bytes": 362819584
+    },
+    {
+      "rows": 4000,
+      "batch_size": 128,
+      "total_characters": 3094123,
+      "predict_and_decision_seconds": 12.568204600000172,
+      "rss_before_bytes": 298823680,
+      "rss_after_bytes": 300171264,
+      "process_lifetime_peak_wset_bytes": 362819584
+    }
+  ],
+  "input": "Training texts cycled with synthetic unique IDs and an unseen suffix; capacity only, no quality estimate",
+  "fit_disabled": true,
+  "fitted_state_unchanged": true,
+  "memory_note": "RSS snapshots and process-lifetime peak, not isolated per-size peak"
+}

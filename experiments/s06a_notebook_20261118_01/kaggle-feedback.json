@@ -1,0 +1,21 @@
+{
+  "feedback_date": "2026-11-18",
+  "record_id": "s06a_kaggle_feedback_01",
+  "evidence_source": "user report in project conversation",
+  "status": "submission completed and scored, user reported",
+  "public_lb_score": 0.311,
+  "notebook_identifier": "notebookceeabf3006",
+  "notebook_saved_version": null,
+  "notebook_url": null,
+  "submission_id": null,
+  "submission_url": null,
+  "public_lb_rank": null,
+  "uploaded_code_modified": null,
+  "team": null,
+  "remote_environment": null,
+  "independently_verified": false,
+  "local_candidate": "notebooks/99_submission.ipynb",
+  "local_candidate_sha256": "adcd730607e42e00721bbafa6b0002696fa7de08bb126c488927a90e61a631db",
+  "source_binding": "pending saved-version link and confirmation of uploaded code",
+  "note": "Real user-reported Kaggle score; do not treat as a new local OOF experiment or verified remote environment. Original local validation records remain unchanged."
+}

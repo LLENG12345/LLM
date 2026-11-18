@@ -158,7 +158,8 @@ def check_official():
     if before:
         assert hashes_before == {Path(p).name: value for p, value in before['files'].items()}
         assert NB['cells'][1] == before['notebook']['cells'][1], 'S01 resolver changed'
-        assert NB['cells'][3:] == before['notebook']['cells'][3:], 'Model/CV/prediction changed'
+        from check_baseline_structure import check_baseline_structure
+        check_baseline_structure(NB, ROOT)
     assert sample is not None
     output = ROOT / 'artifacts/s02/input-summary.json'
     output.parent.mkdir(parents=True, exist_ok=True)

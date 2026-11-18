@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "formal_folds": 5,
+  "oof_rows": 2699,
+  "saved_run_tests": 4,
+  "corruption_scenarios": 6,
+  "smoke_formal_fold1": "exact predictions and decision scores match",
+  "S01": "passed",
+  "S02": "14 groups passed",
+  "S03": "7 groups passed",
+  "scope": "no official full-data model, no test prediction, no v2 model experiment",
+  "validation_test_sha256": "93fd14324bf570c5a91bed88ab4642a7bb35155bf7c9469619bdc82bb4334f85"
+}

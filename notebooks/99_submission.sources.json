@@ -1,0 +1,20 @@
+{
+  "generator": "scripts/build_submission_notebook.py",
+  "baseline_run_id": "s04_baseline_v1_20261118_01",
+  "source_sha256": {
+    "notebooks/01_baseline.ipynb": "86e97b52218c206599907e62dda0d666d20a019fa6f1d8fb76e76dabf63ac132",
+    "scripts/run_s04.py": "e5e8f71f40d4e5867bef27a5ff8383ad9fa699417558e0f1e252122250af9165",
+    "scripts/run_s05.py": "75cf6c6c4008ca66c7292b127e89c998fd168f76be51e8d907226c01cfc2fa99",
+    "scripts/check_s05.py": "22900c977c14ba2fa02d5c88f81878aa6a0c1bf9e1645896134dcbe4744287ee",
+    "scripts/build_submission_notebook.py": "af86565b8ff603e0b553f7698d9091bff191b611f28b015f4b5afe21b9d86eb8"
+  },
+  "baseline_config_sha256": "d3c09ebbef7332db9625922fed3544c6fbd28dfde78d9832e5855566f998a63f",
+  "extraction": {
+    "input_and_labels": "01_baseline cell 2",
+    "model": "01_baseline cell 3",
+    "parameter_normalisation": "run_s04.py",
+    "fit_and_prediction": "run_s05.py",
+    "submission_contract": "check_s05.py"
+  },
+  "notebook_sha256": "adcd730607e42e00721bbafa6b0002696fa7de08bb126c488927a90e61a631db"
+}

@@ -1,0 +1,3 @@
+# Preserve hashed fold-resource bytes across Windows/Linux checkouts.
+experiments/folds/*.csv text eol=lf
+experiments/folds/*_metadata.json text eol=lf

@@ -1,2 +1,4 @@
 date,version,change,group_cv_balanced_accuracy,public_lb_score,public_lb_rank,kaggle_submission_url,notes
 
+2026-11-18,s04_baseline_v1_20261118_01,Original word+char TF-IDF LinearSVC baseline; explicit seed only; fixed folds_v1,0.307437235894,,,,Validated formal OOF; mean fold BA=0.307445721584; std(ddof=0)=0.011191966637; accuracy=0.307521304187; macro_f1=0.295638378856; no Kaggle submission; report=experiments/s04_baseline_v1_20261118_01/analysis.md
+2026-11-18,s06a_kaggle_feedback_01,First Kaggle scored submission; user report; saved version and source binding pending,,0.311,,,Notebook identifier=notebookceeabf3006; URL/version/submission ID/code modifications/team/environment unconfirmed; candidate=s06a_notebook_20261118_01; not a new OOF experiment

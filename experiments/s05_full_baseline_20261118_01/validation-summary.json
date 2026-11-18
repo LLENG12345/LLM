@@ -1,0 +1,37 @@
+{
+  "milestone": "V0.4",
+  "task_ids": [
+    "S04-07",
+    "S05-01",
+    "S05-02",
+    "S05-03",
+    "S05-04",
+    "S05-05"
+  ],
+  "s05_test_groups": 13,
+  "s02_test_groups": 14,
+  "s03_test_groups": 7,
+  "s04_test_groups": 4,
+  "s01_smoke_pass": true,
+  "s04_saved_run_pass": true,
+  "s05_saved_run_pass": true,
+  "protected_files_unchanged": 67,
+  "write_read_equal": true,
+  "model_reload_labels_scores_equal": true,
+  "variable_counts": [
+    0,
+    1,
+    3,
+    17,
+    257,
+    4000
+  ],
+  "no_kaggle_submission": true,
+  "known_limits": [
+    "S01 tracked CSV exception",
+    "S00 Rules/account resources unverified",
+    "Jupyter kernel start/handshake timeout retained",
+    "S03 deferred research"
+  ],
+  "initial_failure_and_fix": "Empty StringDtype Series.map(...).all() raised TypeError under pandas 3.1.0; Python all() preserves strict string validation and supports typed empty output."
+}

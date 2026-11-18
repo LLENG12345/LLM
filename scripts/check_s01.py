@@ -32,8 +32,8 @@ def main():
     nb = json.loads(NB_PATH.read_text(encoding='utf-8'))
     original = json.loads(subprocess.check_output(
         ['git', 'show', 'HEAD:notebooks/01_baseline.ipynb'], cwd=ROOT))
-    # S02 owns the input cell (index 2); model/CV/prediction cells start at 3.
-    assert nb['cells'][3:] == original['cells'][3:], 'Algorithm cells changed'
+    from check_baseline_structure import check_baseline_structure
+    check_baseline_structure(nb, ROOT)
     source = ''.join(nb['cells'][1]['source'])
     data_dir = ROOT / 'data' / 'name-that-llm'
     before = hashes(data_dir)
