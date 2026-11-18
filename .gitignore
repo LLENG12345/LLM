@@ -1,6 +1,19 @@
 # Competition data and generated predictions
-data/*.csv
-data/*.parquet
+data/**/*.csv
+data/**/*.parquet
+data/**/*.zip
+data/**/*.jsonl
+data/**/*.npz
+artifacts/
+models/
+checkpoints/
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.h5
+*.hdf5
 *.parquet
 *.joblib
 *.pkl
@@ -14,6 +27,9 @@ evidence/*
 __pycache__/
 .pytest_cache/
 .venv/
+venv/
+env/
+.env/
 *.pyc
 
 # OS and editor files

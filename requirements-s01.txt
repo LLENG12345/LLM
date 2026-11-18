@@ -1,0 +1,7 @@
+# S01 direct dependency versions; full snapshot: docs/environments/s01-pip-freeze.txt
+-r requirements.txt
+numpy==2.5.4
+pandas==3.1.0
+scikit-learn==1.9.1
+pyarrow==26.0.1
+notebook==7.6.5

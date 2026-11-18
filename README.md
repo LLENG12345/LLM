@@ -21,16 +21,33 @@ Kaggle 是 Code Competition：正式提交需由 Notebook 生成 `submission.par
 
 ## 本地运行
 
-需要 Python 3.10 或更新版本。将比赛下载的 `train.csv` 和 `test.csv` 放进 `data/`，然后：
+当前 S01 验证环境为 Python 3.12。官方文件保留在 `data/name-that-llm/`，无需移动或复制。以下 PowerShell 命令从仓库根目录执行；直接调用虚拟环境解释器，无需修改 PowerShell 执行策略：
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-jupyter notebook notebooks/01_baseline.ipynb
+python -m venv .venv  # 仅在没有合适的项目环境时执行
+.\.venv\Scripts\python.exe -m pip install -r requirements-s01.txt
+.\.venv\Scripts\python.exe scripts/check_s01.py
+.\.venv\Scripts\python.exe -m notebook notebooks/01_baseline.ipynb
 ```
 
-本地运行也会在当前工作目录生成 `submission.parquet`。Notebook 会优先寻找 Kaggle 比赛输入目录，再寻找仓库的 `data/`。训练数据、提交文件及证据截图默认不纳入 Git。
+`requirements.txt` 保留基础依赖范围，`requirements-s01.txt` 固定本轮验证的直接依赖版本。已有环境先检查版本，仅补缺失或不满足要求的依赖，不使用 `--upgrade`。完整环境快照见 `docs/environments/s01-pip-freeze.txt`。
+
+也可先运行 `.\.venv\Scripts\Activate.ps1` 再使用 `python`；若策略禁止激活，继续使用上面的完整解释器路径。从 notebooks 目录启动使用：
+
+```powershell
+Set-Location notebooks
+..\.venv\Scripts\python.exe -m notebook 01_baseline.ipynb
+```
+
+Notebook 输入优先级：环境变量 `NAME_THAT_LLM_DATA_DIR` → Kaggle 官方目录 → 项目根目录下 `data/name-that-llm/` → 旧 `data/`。每个候选要求同时存在 `train.csv` 和 `test.csv`。显式目录无效会报错，不切换数据版本；相对显式路径按内核当前目录解释。可在启动 Jupyter 前设置：
+
+```powershell
+$env:NAME_THAT_LLM_DATA_DIR = 'D:/你的数据目录'
+# 随后启动 Jupyter；使用默认路径前移除此覆盖：
+Remove-Item Env:NAME_THAT_LLM_DATA_DIR -ErrorAction SilentlyContinue
+```
+
+本地完整运行仍在内核当前目录输出结果，Kaggle 输出到 `/kaggle/working/`。S01 冒烟脚本只做导入、路径和 I/O 检查，不执行训练。新原始数据与生成产物由忽略规则保护；当前提交中已跟踪的两份 CSV 仍保留版本管理，本轮没有取消跟踪。
 
 ## 仓库结构
 
