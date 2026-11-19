@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "task": "S07-01 word/char feature-ablation component",
+  "new_formal_runs": [
+    "s07_word_only_v1_20261118_01",
+    "s07_char_only_v1_20261118_01"
+  ],
+  "formal_fold_fits": 10,
+  "smoke_fold_fits": 2,
+  "baseline_retrained": false,
+  "s07_test_groups": 8,
+  "s06b_test_groups": 11,
+  "existing_regressions": {
+    "existing": {
+      "s01": {
+        "exit_code": 0,
+        "seconds": 3.9297039000011864
+      },
+      "s02": {
+        "exit_code": 0,
+        "seconds": 4.267747800004145
+      },
+      "s03": {
+        "exit_code": 0,
+        "seconds": 5.448965400006273
+      },
+      "s04-check": {
+        "exit_code": 0,
+        "seconds": 4.3746365000042715
+      },
+      "s04-test": {
+        "exit_code": 0,
+        "seconds": 7.223661800002446
+      },
+      "s05-check": {
+        "exit_code": 0,
+        "seconds": 4.894175500005076
+      },
+      "s05-test": {
+        "exit_code": 0,
+        "seconds": 23.984423399997468
+      }
+    },
+    "s06b_test_groups": 11,
+    "s06b_exit_code": 0,
+    "submission_notebook_static_check": true,
+    "official_baseline_retrained": false
+  },
+  "protected_files_unchanged": 498,
+  "default_configuration_unchanged": true,
+  "new_kaggle_submission": false,
+  "oracle_is_deployable": false,
+  "remaining_s07_01_scope": "Classifier comparison not implemented"
+}

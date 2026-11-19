@@ -1,0 +1,172 @@
+[
+  {
+    "seed": 20261119,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20262128,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20263137,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20264146,
+    "descending_ba": [
+      "b3c",
+      "b3",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 2.0,
+      "b3c": 1.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20265155,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20266164,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20267173,
+    "descending_ba": [
+      "b3",
+      "b3c",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 1.0,
+      "b3c": 2.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20268182,
+    "descending_ba": [
+      "b3c",
+      "b3",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 2.0,
+      "b3c": 1.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20269191,
+    "descending_ba": [
+      "b3c",
+      "b3",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 2.0,
+      "b3c": 1.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  },
+  {
+    "seed": 20270200,
+    "descending_ba": [
+      "b3c",
+      "b3",
+      "char",
+      "combo",
+      "word"
+    ],
+    "ranks": {
+      "b3": 2.0,
+      "b3c": 1.0,
+      "char": 3.0,
+      "combo": 4.0,
+      "word": 5.0
+    }
+  }
+]

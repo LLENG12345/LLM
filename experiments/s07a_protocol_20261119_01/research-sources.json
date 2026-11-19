@@ -1,0 +1,214 @@
+{
+  "github_commit": "e83b9e3eacbda00621034384b72f6cdea6555060",
+  "hf_revision": "6d95d58befad5be730c7287dd98861c81dc26590",
+  "raw_sources": "local ignored artifacts/s07a_protocol_20261119_01/research; no credentials copied",
+  "records": [
+    {
+      "url": "https://api.github.com/repos/051019zhao/LLM/git/trees/e83b9e3eacbda00621034384b72f6cdea6555060?recursive=1",
+      "file": "github-tree.json",
+      "bytes": 3903,
+      "sha256": "4ca8154983ae47d38f8c19429d679bf91788bb321a2986d4e3e27b2c439d2880",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/051019zhao/LLM/e83b9e3eacbda00621034384b72f6cdea6555060/REVIEW_KAGGLE_SUBMISSIONS.md",
+      "file": "REVIEW_KAGGLE_SUBMISSIONS.md",
+      "bytes": 4123,
+      "sha256": "32461b9b5e68294928f41cf1456fc55f6a07b51a1e0d5b5f5f0d5f3a9dcd7619",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/051019zhao/LLM/e83b9e3eacbda00621034384b72f6cdea6555060/notebooks/03_optimized_submission.ipynb",
+      "file": "notebooks__03_optimized_submission.ipynb",
+      "bytes": 21469,
+      "sha256": "5cce55a25644ca7652f4810d8d7bf9df41890f3a69fd78e88df00977cd6dadcd",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/api/datasets/yauwes/name-that-llm-sota-artifacts",
+      "file": "hf-info.json",
+      "bytes": 3639,
+      "sha256": "44d88877f21667257120a3b170c9ac70a03eb392c448221d11f1dda4b00f58fd",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/README.md",
+      "file": "hf-readme.md",
+      "bytes": 22375,
+      "sha256": "1efdfd08949c5299e404317545c754565be68c08ebff4d9c0f647fce5a82f32b",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/api/datasets/yauwes/name-that-llm-sota-artifacts/tree/6d95d58befad5be730c7287dd98861c81dc26590?recursive=true&limit=1000",
+      "file": "hf-tree.json",
+      "bytes": 5984,
+      "sha256": "da739c652ad2aed855fd2c6d72b2854909e9e816f378e0a153610b7378752b94",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/TECHNICAL_REPORT.md",
+      "file": "hf__TECHNICAL_REPORT.md",
+      "bytes": 14641,
+      "sha256": "a632aa2fc83e804fcd9639779b6a5a03e683f88b0394726d1a2b3265db9f8b03",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/reports/benchmark_70_15_15_5fold_leaderboard.json",
+      "file": "hf__reports__benchmark_70_15_15_5fold_leaderboard.json",
+      "bytes": 4823,
+      "sha256": "e03e70263cc2dd81d1a7a94b47588bc92557f2dc22ab7ec58bec0dad049c9a18",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/results/benchmark_70_15_15_5fold_leaderboard.json",
+      "file": "hf__results__benchmark_70_15_15_5fold_leaderboard.json",
+      "bytes": 14643,
+      "sha256": "059ae8004c6e430d38b630cbb26d60b0f12740a1c4366ae7450a0b5b762a7beb",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/build_notebooks.py",
+      "file": "hf__src__build_notebooks.py",
+      "bytes": 109946,
+      "sha256": "1f2d7ee8ed77c142717e4e214f8acce804179a383aaa4c1b91dc43571d860147",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/exact_author_joint.py",
+      "file": "hf__src__exact_author_joint.py",
+      "bytes": 4874,
+      "sha256": "d1ef02639c01f20655c9d31d1d9372a02256c10717fc0ee43d27d9648d4a2804",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/exp01_baselines.py",
+      "file": "hf__src__exp01_baselines.py",
+      "bytes": 3470,
+      "sha256": "1d870d738c26e674b9ece5b8b187180c1033cfb44cb1f06cecc8924074a5af8f",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/exp02_style_and_prompt_residual.py",
+      "file": "hf__src__exp02_style_and_prompt_residual.py",
+      "bytes": 11224,
+      "sha256": "d31d78c38b7312892878f97c1d46451a9b9bd4c8f80cbae3d47829d0169c93ed",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/sibling_style.py",
+      "file": "hf__src__sibling_style.py",
+      "bytes": 4969,
+      "sha256": "a96ab3e8c09fb6313485e573b72e04dc692cbeef9f0da552eed887c3eaa02eb7",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/stage1_2_features.py",
+      "file": "hf__src__stage1_2_features.py",
+      "bytes": 18959,
+      "sha256": "cf0927c3aace9753ec2ccb4af4f11bc3044807cdb88ce688f95d147b0f2085b7",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/stage3_4_5_pipeline.py",
+      "file": "hf__src__stage3_4_5_pipeline.py",
+      "bytes": 47879,
+      "sha256": "2695290c84a193c0d82e6f3aefad11a97ca2daebe15b610eb238ef6c4f06961f",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://huggingface.co/datasets/yauwes/name-that-llm-sota-artifacts/raw/6d95d58befad5be730c7287dd98861c81dc26590/src/stage_70_15_15_5fold_eval.py",
+      "file": "hf__src__stage_70_15_15_5fold_eval.py",
+      "bytes": 31541,
+      "sha256": "dd34cfe46b287d38b35508397520c19d4aa32a4a81a3edc9fb53be46c74a0c1e",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://api.github.com/repos/051019zhao/LLM/commits?path=notebooks/04_topic_robust_submission.ipynb&per_page=1",
+      "file": "github-04-history.json",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://www.sahraju.com.np/competitions/name-that-llm",
+      "file": "sahraju.html",
+      "bytes": 121867,
+      "sha256": "ebaff0ab5950e54128c7692a61f4e869025b0a5723aad199f22a71666d65ca9a",
+      "reused": true,
+      "access_date": "2026-11-19",
+      "evidence": "public source read; author claims not independently scored"
+    },
+    {
+      "url": "https://www.kaggle.com/competitions/name-that-llm/overview/description",
+      "access_date": "2026-11-19",
+      "actual_read": "official search-index body read; direct page empty",
+      "version": "index about one month old"
+    },
+    {
+      "url": "https://www.kaggle.com/competitions/name-that-llm/rules",
+      "access_date": "2026-11-19",
+      "actual_read": "no readable body; unrelated competition results rejected",
+      "version": "unknown"
+    },
+    {
+      "url": "https://dev.to/jun-matsui/breaking-0669-to-reach-top-5-in-kaggles-name-that-llm-the-decoy-trap-dual-svc-sequence-368n",
+      "access_date": "2026-11-19",
+      "actual_read": "article body read; author claims, AI-assisted",
+      "version": "page Nov 7; immutable revision unknown"
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/nishantdahal/ntl-handwriting-blend",
+      "access_date": "2026-11-19",
+      "actual_read": "title only: NTL two-stage LoRA part two; no corpus/license verified",
+      "version": "unknown"
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/prvsiyan/ntl-public-in-style-pool-v1",
+      "access_date": "2026-11-19",
+      "actual_read": "title only; corpus/license not read",
+      "version": "unknown"
+    },
+    {
+      "url": "https://www.kaggle.com/datasets/prvsiyan/ntl-two-stage-lora-adapters-v3",
+      "access_date": "2026-11-19",
+      "actual_read": "title only; adapter provenance/license not read",
+      "version": "unknown"
+    },
+    {
+      "url": "https://www.kaggle.com/code/dhananjayk2609/name-that-llm-style-fingerprints-llm-ensemble",
+      "access_date": "2026-11-19",
+      "actual_read": "title only; code inaccessible",
+      "version": "unknown"
+    },
+    {
+      "url": "https://autoresearch-arena.github.io/contests/name-that-llm/",
+      "access_date": "2026-11-19",
+      "actual_read": "third-party ledger body read; not official leaderboard",
+      "version": "2026-11-17 18:01 ET"
+    }
+  ]
+}

@@ -1,0 +1,191 @@
+{
+  "status": "passed_with_documented_research_limits",
+  "stage": "S07-A",
+  "plan_version": "v2.0",
+  "new_model_fits": 0,
+  "test_groups": 14,
+  "protected_files": 815,
+  "changed_protected_files": [],
+  "git_head": "7d678c50a1e63e32631963e3975adae2fd494497",
+  "commands": [
+    {
+      "argv": [
+        "D:\\七彩阳光\\大三上\\数据挖掘\\大作业\\LLM\\.venv\\Scripts\\python.exe",
+        "scripts/check_s07a.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "check-ignore",
+        "experiments/evaluation_masks/sparse_k2_v1/masks.csv",
+        "experiments/evaluation_masks/sparse_k2_v1/metadata.json",
+        "experiments/s07a_protocol_20261119_01/summary.csv"
+      ],
+      "exit_code": 1
+    },
+    {
+      "argv": [
+        "git",
+        "check-attr",
+        "text",
+        "eol",
+        "--",
+        "experiments/evaluation_masks/sparse_k2_v1/masks.csv",
+        "docs/history/工作计划_v1.1_20261119.md",
+        "src/ntl/evaluation.py"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "criteria": [
+    {
+      "id": 1,
+      "name": "historical_oof_audit_and_inheritance",
+      "passed": true,
+      "evidence": "Three real runs validated; complete scores, recalls, CM, config and provenance; B0-B2 inherited"
+    },
+    {
+      "id": 2,
+      "name": "v1_1_preserved",
+      "passed": true,
+      "evidence": "bb65c0e00beec81b05baf0eee3fac8539b0ba4bd66f1f324018c7691f23a2523"
+    },
+    {
+      "id": 3,
+      "name": "v2_plan_and_mapping",
+      "passed": true,
+      "evidence": "S00-S11 history retained; solo path and task mapping documented"
+    },
+    {
+      "id": 4,
+      "name": "source_reliability_documented",
+      "passed": true,
+      "evidence": "Pinned GitHub/HF; source vs author vs third-party; title-only and missing files disclosed"
+    },
+    {
+      "id": 5,
+      "name": "k2_definition_or_limit",
+      "passed": true,
+      "evidence": "Community helper includes assignment; original correlation and hidden structure unverified; own protocol clearly named"
+    },
+    {
+      "id": 6,
+      "name": "masks_frozen_reproducible",
+      "passed": true,
+      "evidence": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f"
+    },
+    {
+      "id": 7,
+      "name": "same_masks_all_three",
+      "passed": true,
+      "evidence": "30 model x seed uses; same resource; ID alignment tested"
+    },
+    {
+      "id": 8,
+      "name": "real_sparse_results",
+      "passed": true,
+      "evidence": "10 masks x 3 models; metrics, coverage, recalls, paired rankings and complementarity"
+    },
+    {
+      "id": 9,
+      "name": "full_evaluation_unchanged",
+      "passed": true,
+      "evidence": "Full BA/Acc/F1 independently match saved metrics within 1e-15; training modules unchanged"
+    },
+    {
+      "id": 10,
+      "name": "historical_integrity",
+      "passed": true,
+      "evidence": "815 protected raw/data/fold/config/notebook/experiment/code files unchanged"
+    },
+    {
+      "id": 11,
+      "name": "tests_and_readonly_regression",
+      "passed": true,
+      "evidence": "14 tests passed; saved-run validation passed; no full historical fitting suites rerun"
+    },
+    {
+      "id": 12,
+      "name": "git_diff_check",
+      "passed": true,
+      "evidence": "exit 0; existing LF/CRLF advisories retained"
+    },
+    {
+      "id": 13,
+      "name": "logs_and_protocol",
+      "passed": true,
+      "evidence": "L014 prior-task closeout, L015 evaluation, L016 research/plan; new protocol and reports"
+    },
+    {
+      "id": 14,
+      "name": "solo_route",
+      "passed": true,
+      "evidence": "A->B->S08-A/B->S09->S10->S11; no teammate required; score goals not guarantees"
+    },
+    {
+      "id": 15,
+      "name": "no_new_training",
+      "passed": true,
+      "evidence": "0 fits this cycle, no v2 model use, no external corpora/weights download, no Kaggle/Git mutation"
+    }
+  ],
+  "research_unknowns": [
+    "Name That LLM Rules body and current account quotas",
+    "current deadline changes vs indexed Overview",
+    "official hidden prompt multiplicity",
+    "04 source and independent teammate score receipts",
+    "original .13/.91 correlation population and calculation",
+    "external corpus/adapter licenses/publication/data-training provenance",
+    "prior Char candidate generator missing"
+  ],
+  "preserved_legacy_issues": [
+    "tracked official CSV",
+    "Jupyter kernel channel restriction",
+    "deep EDA/near-duplicate research deferred"
+  ],
+  "training_and_submission_source_unchanged": true,
+  "experiments_csv_unchanged": true,
+  "plan_sha256": "99d3d9028596a501caf0a65ab4673fdd10a1ad192255f7a8e3ff2bfebc012fb5",
+  "log_sha256": "fe8eeae50d449cc0e1a12bf4f23a594911d767c82ed7c5827fd38d9d63a872a9",
+  "test_source_sha256": "3c32038b9b840e25bade49e19481125ed39a8ea062b1be4b6cef5319bb1d8bbf",
+  "local_command_log_sha256": "faf321d24453038eb13e30185e8c07bc9911a9d983cf5ec71bf7e474998084b0"
+}

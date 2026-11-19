@@ -1,0 +1,10 @@
+{
+  "status": "retain_both_candidates",
+  "primary_comparison": "B3-C vs B3",
+  "reason": "Near-zero full OOF difference; equal correct count; mixed sparse/fold differences and bootstrap CI crosses zero",
+  "preferred_existing_reference": "B3 remains established enhanced reference; B3-C retained as character+style alternative",
+  "default": "B0 unchanged",
+  "B4_design": "B0 plus morphology independent incremental control; unchanged",
+  "char_style_morphology_candidate": "not run; requires future review and instruction",
+  "new_notebook_or_kaggle_submission": false
+}

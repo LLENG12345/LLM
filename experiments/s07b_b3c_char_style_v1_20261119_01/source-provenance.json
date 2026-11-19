@@ -1,0 +1,10 @@
+{
+  "timing": "acceptance copy archived after fitting; matches the actual training-start script source snapshots",
+  "sha256": {
+    "configs/s07b_b3c_char_style.json": "df61f3896fd2ffa919cea914155fe8b0aa4181a94fd7506bfd61612b6aa393d1",
+    "scripts/analyze_b3c.py": "3dc421bfc4f3065b7f95d53f1c98e48930aeb57a553f56843b1faeca1a8d34a8",
+    "scripts/check_b3c.py": "465d77ce3884b97c2a822464bc19f2b550b8cc07aff131ab4260972eedb5e548"
+  },
+  "src_implementation_changed": false,
+  "analysis_plan_sha256": "c09152212b458513d971900f680717062297c816b6d8c732c5a5a75d8687d17b"
+}

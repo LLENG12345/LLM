@@ -1,4 +1,4 @@
-"""S01 smoke checks: imports, paths and I/O only; never fit a model."""
+"""S01 imports/paths/I/O plus a tiny synthetic guard; never fit official data."""
 import hashlib
 from contextlib import chdir
 import json
@@ -30,8 +30,6 @@ def main():
                 'pyarrow': pyarrow.__version__, 'notebook': notebook.__version__}
     print('VERSIONS', json.dumps(versions))
     nb = json.loads(NB_PATH.read_text(encoding='utf-8'))
-    original = json.loads(subprocess.check_output(
-        ['git', 'show', 'HEAD:notebooks/01_baseline.ipynb'], cwd=ROOT))
     from check_baseline_structure import check_baseline_structure
     check_baseline_structure(nb, ROOT)
     source = ''.join(nb['cells'][1]['source'])
@@ -74,7 +72,9 @@ def main():
                 for filename in ('train.csv', 'test.csv'):
                     (directory / filename).touch()
             os.chdir(project)
-            namespace['KAGGLE_DATA'] = kaggle
+            import ntl.data as data_module
+            old_kaggle = data_module.KAGGLE_DATA
+            data_module.KAGGLE_DATA = kaggle
             resolve = namespace['resolve_data_dir']
             assert resolve(explicit) == explicit.resolve()
             assert resolve() == kaggle.resolve()
@@ -106,6 +106,7 @@ def main():
             env_namespace = {}
             exec(compile(source, str(NB_PATH), 'exec'), env_namespace)
             assert env_namespace['DATA_DIR'] == explicit.resolve()
+            data_module.KAGGLE_DATA = old_kaggle
         print('ALL_FOUR_PATH_PRIORITIES_OK')
     finally:
         os.chdir(previous_cwd)
@@ -115,7 +116,7 @@ def main():
             os.environ['NAME_THAT_LLM_DATA_DIR'] = previous_override
     assert before == hashes(data_dir), 'Original data changed'
     print('ORIGINAL_DATA_SHA256_UNCHANGED', json.dumps(before))
-    print('ALGORITHM_CELLS_UNCHANGED; S01_SMOKE_PASS')
+    print('BASELINE_PARAMETERS_AND_PUBLIC_BEHAVIOR_UNCHANGED; S01_SMOKE_PASS')
 
 
 if __name__ == '__main__':

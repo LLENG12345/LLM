@@ -1,4 +1,4 @@
-"""Exercise Notebook input contracts without executing model training cells."""
+"""Exercise shared input contracts without training an official model."""
 import csv
 import hashlib
 import json
@@ -10,11 +10,8 @@ import unittest
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-NB = json.loads((ROOT / 'notebooks/01_baseline.ipynb').read_text(encoding='utf-8'))
-NS = {'Path': Path, 'pd': pd, 'np': __import__('numpy')}
-INPUT_SOURCE = ''.join(NB['cells'][2]['source'])
-exec(compile(INPUT_SOURCE.split('train, test, sample_submission, data_summary =')[0],
-             'notebook_input_functions', 'exec'), NS)
+from ntl import data as input_module
+NS = vars(input_module)
 ORDER = NS['class_order']
 
 
@@ -157,11 +154,10 @@ def check_official():
                              for p in directory.iterdir() if p.is_file()}
     if before:
         assert hashes_before == {Path(p).name: value for p, value in before['files'].items()}
-        assert NB['cells'][1] == before['notebook']['cells'][1], 'S01 resolver changed'
         from check_baseline_structure import check_baseline_structure
-        check_baseline_structure(NB, ROOT)
+        check_baseline_structure(None, ROOT)
     assert sample is not None
-    output = ROOT / 'artifacts/s02/input-summary.json'
+    output = Path(os.environ.get('NAME_THAT_LLM_S02_REPORT', str(ROOT / 'artifacts/s02/input-summary.json')))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(summary, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     print('OFFICIAL_INPUT_PASS', len(train), len(test), len(sample))

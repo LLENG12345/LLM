@@ -1,42 +1,35 @@
-"""Protect unchanged model and fitting logic while allowing fixed-fold wiring."""
+"""Public-behavior/config protection replacing historical Notebook cell AST checks."""
 import ast
-import copy
+import inspect
 import json
-import subprocess
 from pathlib import Path
-
+import numpy as np
+from ntl.data import read_input_csv
+from ntl.models import make_model, model_config, RANDOM_SEED
+from ntl.submission import fit_full_model, predict_test, write_and_verify_submission
+from ntl.experiments import run_fold
 
 def check_baseline_structure(nb, root):
-    old = json.loads(subprocess.check_output(
-        ['git', 'show', 'HEAD:notebooks/01_baseline.ipynb'], cwd=root))
-    assert nb['cells'][1:3] == old['cells'][1:3], 'Path/input contract changed'
-    assert nb['cells'][4:] == old['cells'][4:], 'Final prediction logic changed'
-    current = ast.parse(''.join(nb['cells'][3]['source']))
-    original = ast.parse(''.join(old['cells'][3]['source']))
-    for tree in (current, original):
-        assert sum(isinstance(node, ast.For) for node in tree.body) == 1
-    for name in ('make_model',):
-        now = next(node for node in current.body if isinstance(node, ast.FunctionDef) and node.name == name)
-        was = next(node for node in original.body if isinstance(node, ast.FunctionDef) and node.name == name)
-        # S04 permits only the explicit deterministic LinearSVC seed.
-        seed = next(n for n in current.body if isinstance(n, ast.Assign)
-                    and any(isinstance(t, ast.Name) and t.id == 'RANDOM_SEED' for t in n.targets))
-        assert ast.literal_eval(seed.value) == 20261118
-        now = copy.deepcopy(now)
-        classifier = next(n for n in ast.walk(now) if isinstance(n, ast.Call)
-                          and isinstance(n.func, ast.Name) and n.func.id == 'LinearSVC')
-        keywords = [k for k in classifier.keywords if k.arg == 'random_state']
-        assert len(keywords) == 1 and isinstance(keywords[0].value, ast.Name)
-        assert keywords[0].value.id == 'RANDOM_SEED'
-        classifier.keywords = [k for k in classifier.keywords if k.arg != 'random_state']
-        # Permit comparing against a later committed snapshot with this same seed.
-        was = copy.deepcopy(was)
-        previous_classifier = next(n for n in ast.walk(was) if isinstance(n, ast.Call)
-                                   and isinstance(n.func, ast.Name) and n.func.id == 'LinearSVC')
-        previous_classifier.keywords = [k for k in previous_classifier.keywords if k.arg != 'random_state']
-        assert ast.dump(now) == ast.dump(was), 'Model configuration changed beyond approved seed'
-    now_loop = next(node for node in current.body if isinstance(node, ast.For))
-    old_loop = next(node for node in original.body if isinstance(node, ast.For))
-    assert [ast.dump(node) for node in now_loop.body] == [ast.dump(node) for node in old_loop.body], 'CV fit/predict body changed'
-    assert ast.dump(now_loop.target) == ast.dump(old_loop.target)
-    assert 'fixed_splits' in ast.unparse(now_loop.iter), 'CV does not use fixed folds'
+    baseline = json.loads((Path(root) / 'artifacts/s04_baseline_v1_20261118_01/config.json').read_text(encoding='utf-8'))
+    assert model_config(make_model()) == baseline['model_parameters'], 'Default model configuration changed'
+    assert RANDOM_SEED == baseline['random_seed'] == 20261118
+    # Protect the actual shared fit/predict bodies, not obsolete cell positions.
+    fold_source = inspect.getsource(run_fold)
+    assert "model.fit(fit_frame['text'].astype(str), fit_frame['model'])" in fold_source
+    assert "model.predict(valid_frame['text'].astype(str))" in fold_source
+    assert "fit_frame['prompt_id']" in fold_source and "valid_frame['prompt_id']" in fold_source
+    full = inspect.getsource(fit_full_model)
+    assert "model.fit(train['text'].astype(str), train['model'])" in full
+    assert '.fit(' not in inspect.getsource(predict_test)
+    assert 'index=False' in inspect.getsource(write_and_verify_submission)
+    if nb is not None:
+        source = '\n'.join(''.join(c['source']) for c in nb['cells'] if c['cell_type'] == 'code')
+        assert 'from ntl.' in source and 'def make_model' not in source
+    # Independent tiny corpus proves validation-only tokens cannot change vocab/IDF.
+    model = make_model()
+    model.fit(['alpha beta first', 'alpha beta second', 'gamma delta first', 'gamma delta second'], ['a','a','b','b'])
+    word = model.named_steps['features'].transformer_list[0][1]
+    vocab, idf = dict(word.vocabulary_), word.idf_.copy()
+    model.predict(['validationonlytoken'])
+    assert 'validationonlytoken' not in word.vocabulary_ and word.vocabulary_ == vocab
+    np.testing.assert_array_equal(word.idf_, idf)

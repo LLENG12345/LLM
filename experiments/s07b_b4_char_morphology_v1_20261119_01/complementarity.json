@@ -1,0 +1,10 @@
+{
+  "pair": "B4 and B3-C",
+  "both_correct": 712,
+  "b4_only_correct": 239,
+  "b3c_only_correct": 307,
+  "both_wrong": 1441,
+  "oracle_accuracy": 0.4660985550203779,
+  "oracle_balanced_accuracy": 0.46599552572706926,
+  "warning": "Truth-assisted ideal selector over TWO fixed predictions; diagnostic only, not an achieved fusion or guaranteed score"
+}

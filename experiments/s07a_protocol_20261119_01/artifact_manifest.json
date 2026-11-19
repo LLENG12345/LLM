@@ -1,0 +1,24 @@
+{
+  "sha256": {
+    "class_coverage.csv": "bd9e50e572ee898dad64419ca586a47a2f712320819b560d9fa8fe0883c5c272",
+    "class_recall.csv": "c13d9255fe1fc98c25c1018827de8bd674113b45f0b5375de1cc686360c1b12a",
+    "community-attributed-pairs.csv": "0785deb034726339a497bc2760c1709dd6496f2bb6b4bcc8cc2347ae54d34e19",
+    "community-correlation-audit.json": "36c61f84664a9722dd1911265f08fe3dba7ac5cd126373c56a6d128f2559e019",
+    "complementarity.json": "421fc7c82562d308633747e242c12f7301bcd20754f8cc19c35241db60c925ed",
+    "evaluation_metadata.json": "1779a2a21649f7ab503ade23a26fc16257e0b3b47363694bbedfd8ad57e5edee",
+    "final-acceptance.json": "fee2d27459389ad123db040ac4b290ea6c47b87785dc654831bdb6bc93a051b7",
+    "full_metrics.csv": "7362bfd5f93c880af371fa0b095ffde8056b89e829e20c93e3693d5adcaf8be4",
+    "historical_audit.json": "2e88ecb769e5547a0839374159b1d823957edd06b17650ad254de1952b0857b0",
+    "mask_use.csv": "a280e70f4baa7d2e2eb89e137a2af57ad2516800ef09351f9ee57b306d73fdab",
+    "paired_comparisons.csv": "614d1a68d5a4982fe94c58d62b366b45eb582688bfe8cbacb478f037cd8359de",
+    "rankings.json": "5eb5dbac2bb053986dcea7171deb9241d8d73eafb7abc457489153d3107f5d1b",
+    "report.md": "b788131679564a41341069dab4bc1c0feda5aed325df850604a0addac1f335e6",
+    "research-sources.json": "2b25988aef5c707c1802a75d84e5e7773eebe90141c8c4023f38b4b9ce30952f",
+    "source/scripts/analyze_s07.py": "0fee1eece411f7f0d82689f87aca17dcfe92ac66d31df4fbcff73c06b16357ed",
+    "source/scripts/run_s07a.py": "5f40c25eab12f86f75c4f3991d464a370fde9d9be0f1885a663c4f4ffe1e8b7f",
+    "source/src/ntl/evaluation.py": "caf5c7d326fe31cd64d72e5e32edb8aef370e1282974b940a7dd7a702929f2d7",
+    "source/src/ntl/labels.py": "e0d14cd530e8b41c39a8febf09a7ee44ef2d1f7c5a32ea59296cc342eb9dc763",
+    "sparse_metrics.csv": "02153bb11a3702748bab2c2513cff9c48ad777778e50bd634b67370e37fd9c46",
+    "summary.csv": "69fb617db1d223c207d37f35424b2dd2904f4b7a5fdf7afb165d36fc8066705f"
+  }
+}

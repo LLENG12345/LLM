@@ -1,0 +1,22 @@
+{
+  "runs": {
+    "combo": "s06b_equivalence_cv_20261118_01",
+    "word": "s07_word_only_v1_20261118_01",
+    "char": "s07_char_only_v1_20261118_01",
+    "b3": "s07b_b3_rich_style_v1_20261119_01",
+    "b3c": "s07b_b3c_char_style_v1_20261119_01"
+  },
+  "oof_sha256": {
+    "combo": "b64c19d1f497f2239f26888d2dedb4690e25b950ccaeff3f279730e3bb32e864",
+    "word": "8417bfdd7f484340b075388f4a0b9e4a039a3550489266b2d5d562f8a6199a81",
+    "char": "07a5f444b5f47eda0757175abf12eede5ccf06caeac156bd1535bebf7c848842",
+    "b3": "89c266572b9b6cce63aa8361ad7b4ede51e422da1c7fc68ad361d8c8eaf84dea",
+    "b3c": "1b7c1d52473a597e58bc4095b0eaf44c6d57e536ee1340c7d49966ac29ef4d5e"
+  },
+  "mask_sha256": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+  "mask_metadata_sha256": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8",
+  "old_40_sparse_scores_unchanged": true,
+  "new_model_fits_during_analysis": 0,
+  "primary_protocol": "full_group_cv",
+  "interpretation": "Factorial contrasts describe this fixed configuration and OOF only; no universal causal claim"
+}

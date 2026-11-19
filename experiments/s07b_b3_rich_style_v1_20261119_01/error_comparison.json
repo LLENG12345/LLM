@@ -1,0 +1,12 @@
+{
+  "n": 2699,
+  "both_correct": 651,
+  "b0_only_correct_new_errors": 179,
+  "b3_only_correct_corrected": 368,
+  "both_wrong": 1501,
+  "changed_predictions": 1236,
+  "same_provider_errors_b0": 914,
+  "same_provider_errors_b3": 835,
+  "cross_provider_errors_b0": 955,
+  "cross_provider_errors_b3": 845
+}

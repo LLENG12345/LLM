@@ -1,0 +1,13 @@
+{
+  "both_correct": 712,
+  "both_wrong": 1441,
+  "b4_corrected": 239,
+  "b4_new_errors": 307,
+  "net_correct_gain": -68,
+  "agreement_count": 1527,
+  "agreement_rate": 0.5657650981845128,
+  "same_provider_errors_reference": 841,
+  "same_provider_errors_b4": 901,
+  "cross_provider_errors_reference": 839,
+  "cross_provider_errors_b4": 847
+}

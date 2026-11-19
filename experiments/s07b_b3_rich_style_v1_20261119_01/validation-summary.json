@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "run_id": "s07b_b3_rich_style_v1_20261119_01",
+  "oof_rows": 2699,
+  "score_dimensions": 18,
+  "frozen_seeds": [
+    20261119,
+    20262128,
+    20263137,
+    20264146,
+    20265155,
+    20266164,
+    20267173,
+    20268182,
+    20269191,
+    20270200
+  ],
+  "same_masks_as_s07a": true,
+  "full_metrics_independently_recomputed": true,
+  "historical_three_sparse_scores_identical": true,
+  "default_model_unchanged": true,
+  "new_formal_fold_fits": 5,
+  "smoke_fold_fits": 1
+}

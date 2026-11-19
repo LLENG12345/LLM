@@ -1,0 +1,213 @@
+{
+  "status": "passed",
+  "stage": "S07-B/B3",
+  "run_id": "s07b_b3_rich_style_v1_20261119_01",
+  "smoke_run_id": "s07b_b3_rich_style_v1_smoke_20261119_01",
+  "new_official_pipeline_fits": 6,
+  "formal_fold_fits": 5,
+  "smoke_fold_fits": 1,
+  "failed_training_retries": 0,
+  "classifier_fits_during_tests_analysis": 0,
+  "full_training": false,
+  "kaggle_submitted": false,
+  "default_replaced": false,
+  "test_groups": 34,
+  "test_composition": {
+    "b3": 14,
+    "s07_related": 7,
+    "s07a_related": 13
+  },
+  "legacy_not_run": [
+    "S07 synthetic classifier-fitting test avoided",
+    "S07-A pre-stage active-source byte freeze superseded by exact before-source archival + B3 input/artifact/config/source guards"
+  ],
+  "protected_file_count": 891,
+  "current_byte_identical": 887,
+  "archived_authorized_sources": [
+    "src/ntl/experiments.py",
+    "src/ntl/features.py",
+    "src/ntl/models.py"
+  ],
+  "unexpected_changed_files": [],
+  "ledger_appended_rows": 1,
+  "raw_and_fold_sha256": {
+    "data/name-that-llm/sample_submission.parquet": "ccf86796b80fd7f83d8463664603fd1208e17559abcf416f198776b819646188",
+    "data/name-that-llm/test.csv": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "data/name-that-llm/train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "experiments/folds/folds_v1.csv": "9e5e0f3db0a359bf314f904862a22d70db92b27c1d91eeb414d8b554e3556af7",
+    "experiments/folds/folds_v1_metadata.json": "665aa28c5d03fe2f301be041da39712f08c54779cbce6e730a343de3405a6811",
+    "experiments/folds/folds_v2.csv": "372aad22faa6de3059d1a26a78d4232199c6427e6249f92c28d9ce2dcabfdba8",
+    "experiments/folds/folds_v2_metadata.json": "f1763fd7a591dd9565452cfdc12d27f7b5a2757e4f508cecdeb1c0460e4ab35a",
+    "experiments/folds/README.md": "8bc3bd2da032cd5aa190a90d81452053c10a6457114a712ac5b3a8aa85fc4700",
+    "experiments/evaluation_masks/sparse_k2_v1/freeze-receipt.json": "87111dd1c8e238af63cb75ee1cb47eef050453c91c8f0b5947d8ca9775621264",
+    "experiments/evaluation_masks/sparse_k2_v1/masks.csv": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+    "experiments/evaluation_masks/sparse_k2_v1/metadata.json": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8"
+  },
+  "criteria": [
+    {
+      "id": 1,
+      "name": "style_width_and_order",
+      "passed": true,
+      "evidence": "162 unique fixed names; actual fitted widths and reference fixture exact"
+    },
+    {
+      "id": 2,
+      "name": "boundary_finite",
+      "passed": true,
+      "evidence": "Empty/short/punctuation/numeric/Unicode inputs finite; invalid input explicitly refused"
+    },
+    {
+      "id": 3,
+      "name": "reproducible_text_preserved",
+      "passed": true,
+      "evidence": "Independent row extraction/batching/reordering exact; no source text mutation"
+    },
+    {
+      "id": 4,
+      "name": "reference_or_documented_difference",
+      "passed": true,
+      "evidence": "Independent method implementation; exact 12 synthetic and 2699x162 raw values; zero-batch/invalid API differences documented"
+    },
+    {
+      "id": 5,
+      "name": "train_fold_scaling",
+      "passed": true,
+      "evidence": "Five sample counts/text digests and all mean/var/scale values recomputed from corresponding training fold"
+    },
+    {
+      "id": 6,
+      "name": "feature_weight",
+      "passed": true,
+      "evidence": "FeatureUnion actual .075 style and default 1 word/char; sparse float32 concatenation verified"
+    },
+    {
+      "id": 7,
+      "name": "default_unchanged",
+      "passed": true,
+      "evidence": "B0/B1/B2 actual full get_params equal before; classifier fit/predict calls unchanged"
+    },
+    {
+      "id": 8,
+      "name": "formal_five_folds",
+      "passed": true,
+      "evidence": "Five validated formal folds + one matching validated smoke; zero failed retries"
+    },
+    {
+      "id": 9,
+      "name": "oof_complete",
+      "passed": true,
+      "evidence": "2699 unique official IDs; original order; no prompt overlap"
+    },
+    {
+      "id": 10,
+      "name": "class_scores_aligned",
+      "passed": true,
+      "evidence": "Finite 2699x18 margins aligned to official class_order; prediction argmax checked"
+    },
+    {
+      "id": 11,
+      "name": "metrics_readback",
+      "passed": true,
+      "evidence": "BA/Accuracy/F1/class recalls/confusion independently recomputed"
+    },
+    {
+      "id": 12,
+      "name": "frozen_masks_reused",
+      "passed": true,
+      "evidence": "40 four-model x seed scores; original mask resource unchanged; original 30 scores unchanged"
+    },
+    {
+      "id": 13,
+      "name": "raw_data_and_both_folds_unchanged",
+      "passed": true,
+      "evidence": "All raw files, folds_v1/v2 and metadata hashes equal stage-before"
+    },
+    {
+      "id": 14,
+      "name": "history_preserved",
+      "passed": true,
+      "evidence": "887 current files identical; 3 authorized old sources archived exact; old CSV bytes prefix retained, 1 real row appended"
+    },
+    {
+      "id": 15,
+      "name": "tests_and_regressions",
+      "passed": true,
+      "evidence": "34 tests passed without skips; read-only artifact regressions and default generator build/syntax passed"
+    },
+    {
+      "id": 16,
+      "name": "git_diff_check",
+      "passed": true,
+      "evidence": "Exit 0; prior line-ending advisories retained"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\七彩阳光\\大三上\\数据挖掘\\大作业\\LLM\\.venv\\Scripts\\python.exe",
+        "scripts/check_b3.py",
+        "--formal",
+        "--regressions"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "check-ignore",
+        "configs/s07b_b3_rich_style.json",
+        "experiments/s07b_b3_rich_style_v1_20261119_01/metrics.json",
+        "experiments/s07b_b3_definition_v1/reference_fixture.json"
+      ],
+      "exit_code": 1
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "command_log_sha256": "086b2786f577ee991df1793c1b94acfcb4c11dda1a067911f751dd40bfb268fe",
+  "plan_sha256": "e454bab1e193b11f035f03cc3503d2a0136e7f83e93f0cc31788c156df1b646f",
+  "log_sha256": "42e141da80fcc230fd685fc2625655efb5fa72ba612d510ab33073aebad62db3",
+  "decision": "retain B3 research candidate; default B0 unchanged; next Char+Style bridge before B4 suggested, neither run",
+  "legacy_issues": [
+    "Rules/resource approval",
+    "tracked CSV",
+    "Jupyter kernel restriction",
+    "deep EDA/near duplicates",
+    "missing prior Char candidate generator"
+  ]
+}

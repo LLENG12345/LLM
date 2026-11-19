@@ -1,0 +1,13 @@
+{
+  "frozen_utc": "2026-11-19T03:37:26.843538+00:00",
+  "primary_comparison": "B4 minus B2",
+  "secondary_comparison": "B4 vs B3-C, different feature types",
+  "bootstrap_repeats": 5000,
+  "bootstrap_seed": 20261118,
+  "bootstrap_unit": "prompt",
+  "interval": "conditional paired percentile 95%",
+  "sparse_masks": "existing sparse_k2_v1; all ten seeds unchanged",
+  "formal_new_configs": 1,
+  "word_style_disabled_in_B4": true,
+  "B5_plan": "Char+Style+Morphology; primary control B3-C; not trained"
+}

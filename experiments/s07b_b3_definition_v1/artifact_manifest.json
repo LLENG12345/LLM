@@ -1,0 +1,7 @@
+{
+  "sha256": {
+    "feature_catalog.csv": "958af4c75a7bb8afd7475ea3faf0bafe47b4012ff9964331573a2cc19d2bbdcb",
+    "feature_names.json": "b951111b92061da9b905d892cafb30802c43754faae8121018096d2457d07b76",
+    "reference_fixture.json": "7aec0be36bb55903525b5de74578d9b925926f9dc700467b237cc69b42d599f3"
+  }
+}

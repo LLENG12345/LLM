@@ -1,0 +1,19 @@
+{
+  "unit": "prompt",
+  "n_prompts": 150,
+  "repeats": 5000,
+  "seed": 20261118,
+  "limitation": "Conditional uncertainty reference for the current fixed OOF differences; preserves within-prompt dependence, does not retrain models or model dependence from overlapping CV training sets. Not an independent-test significance claim.",
+  "intervals": {
+    "b3_minus_b0": {
+      "observed_delta": 0.0700074571215511,
+      "percentile_95_lower": 0.05370612726820775,
+      "percentile_95_upper": 0.0862964214214215
+    },
+    "b3_minus_b2": {
+      "observed_delta": 0.06296544867014675,
+      "percentile_95_lower": 0.04481481481481486,
+      "percentile_95_upper": 0.08111608336524447
+    }
+  }
+}

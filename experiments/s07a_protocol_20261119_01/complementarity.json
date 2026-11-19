@@ -1,0 +1,387 @@
+[
+  {
+    "seed": "full",
+    "n_samples": 2699,
+    "groups": {
+      "both_correct": {
+        "n": 482,
+        "combo_correct": 479
+      },
+      "word_only_correct": {
+        "n": 227,
+        "combo_correct": 119
+      },
+      "char_only_correct": {
+        "n": 367,
+        "combo_correct": 204
+      },
+      "both_wrong": {
+        "n": 1623,
+        "combo_correct": 28
+      }
+    },
+    "prediction_agreement_count": 1201,
+    "prediction_agreement_rate": 0.44497962208225267,
+    "at_least_one_correct_count": 1076,
+    "at_least_one_correct_rate": 0.3986661726565395,
+    "exclusive_complementary_count": 594,
+    "combo_correct_exclusive_count": 323,
+    "combo_correct_exclusive_rate": 0.5437710437710438,
+    "combo_missed_single_oracle_correct_count": 274,
+    "combo_rescued_both_wrong_count": 28,
+    "oracle_accuracy": 0.3986661726565395,
+    "oracle_balanced_accuracy": 0.3985707183693761,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20261119,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 45,
+        "combo_correct": 45
+      },
+      "word_only_correct": {
+        "n": 24,
+        "combo_correct": 11
+      },
+      "char_only_correct": {
+        "n": 43,
+        "combo_correct": 22
+      },
+      "both_wrong": {
+        "n": 188,
+        "combo_correct": 5
+      }
+    },
+    "prediction_agreement_count": 136,
+    "prediction_agreement_rate": 0.4533333333333333,
+    "at_least_one_correct_count": 112,
+    "at_least_one_correct_rate": 0.37333333333333335,
+    "exclusive_complementary_count": 67,
+    "combo_correct_exclusive_count": 33,
+    "combo_correct_exclusive_rate": 0.4925373134328358,
+    "combo_missed_single_oracle_correct_count": 34,
+    "combo_rescued_both_wrong_count": 5,
+    "oracle_accuracy": 0.37333333333333335,
+    "oracle_balanced_accuracy": 0.38604714429017833,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20262128,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 48,
+        "combo_correct": 48
+      },
+      "word_only_correct": {
+        "n": 30,
+        "combo_correct": 11
+      },
+      "char_only_correct": {
+        "n": 45,
+        "combo_correct": 27
+      },
+      "both_wrong": {
+        "n": 177,
+        "combo_correct": 6
+      }
+    },
+    "prediction_agreement_count": 136,
+    "prediction_agreement_rate": 0.4533333333333333,
+    "at_least_one_correct_count": 123,
+    "at_least_one_correct_rate": 0.41,
+    "exclusive_complementary_count": 75,
+    "combo_correct_exclusive_count": 38,
+    "combo_correct_exclusive_rate": 0.5066666666666667,
+    "combo_missed_single_oracle_correct_count": 37,
+    "combo_rescued_both_wrong_count": 6,
+    "oracle_accuracy": 0.41,
+    "oracle_balanced_accuracy": 0.41752254568044045,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20263137,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 63,
+        "combo_correct": 62
+      },
+      "word_only_correct": {
+        "n": 29,
+        "combo_correct": 14
+      },
+      "char_only_correct": {
+        "n": 45,
+        "combo_correct": 21
+      },
+      "both_wrong": {
+        "n": 163,
+        "combo_correct": 4
+      }
+    },
+    "prediction_agreement_count": 140,
+    "prediction_agreement_rate": 0.4666666666666667,
+    "at_least_one_correct_count": 137,
+    "at_least_one_correct_rate": 0.45666666666666667,
+    "exclusive_complementary_count": 74,
+    "combo_correct_exclusive_count": 35,
+    "combo_correct_exclusive_rate": 0.47297297297297297,
+    "combo_missed_single_oracle_correct_count": 40,
+    "combo_rescued_both_wrong_count": 4,
+    "oracle_accuracy": 0.45666666666666667,
+    "oracle_balanced_accuracy": 0.4467213096094283,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20264146,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 62,
+        "combo_correct": 62
+      },
+      "word_only_correct": {
+        "n": 22,
+        "combo_correct": 10
+      },
+      "char_only_correct": {
+        "n": 47,
+        "combo_correct": 25
+      },
+      "both_wrong": {
+        "n": 169,
+        "combo_correct": 6
+      }
+    },
+    "prediction_agreement_count": 139,
+    "prediction_agreement_rate": 0.4633333333333333,
+    "at_least_one_correct_count": 131,
+    "at_least_one_correct_rate": 0.43666666666666665,
+    "exclusive_complementary_count": 69,
+    "combo_correct_exclusive_count": 35,
+    "combo_correct_exclusive_rate": 0.5072463768115942,
+    "combo_missed_single_oracle_correct_count": 34,
+    "combo_rescued_both_wrong_count": 6,
+    "oracle_accuracy": 0.43666666666666665,
+    "oracle_balanced_accuracy": 0.43383933210233294,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20265155,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 59,
+        "combo_correct": 59
+      },
+      "word_only_correct": {
+        "n": 23,
+        "combo_correct": 11
+      },
+      "char_only_correct": {
+        "n": 49,
+        "combo_correct": 28
+      },
+      "both_wrong": {
+        "n": 169,
+        "combo_correct": 2
+      }
+    },
+    "prediction_agreement_count": 130,
+    "prediction_agreement_rate": 0.43333333333333335,
+    "at_least_one_correct_count": 131,
+    "at_least_one_correct_rate": 0.43666666666666665,
+    "exclusive_complementary_count": 72,
+    "combo_correct_exclusive_count": 39,
+    "combo_correct_exclusive_rate": 0.5416666666666666,
+    "combo_missed_single_oracle_correct_count": 33,
+    "combo_rescued_both_wrong_count": 2,
+    "oracle_accuracy": 0.43666666666666665,
+    "oracle_balanced_accuracy": 0.4377010151169414,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20266164,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 47,
+        "combo_correct": 46
+      },
+      "word_only_correct": {
+        "n": 26,
+        "combo_correct": 13
+      },
+      "char_only_correct": {
+        "n": 44,
+        "combo_correct": 23
+      },
+      "both_wrong": {
+        "n": 183,
+        "combo_correct": 4
+      }
+    },
+    "prediction_agreement_count": 136,
+    "prediction_agreement_rate": 0.4533333333333333,
+    "at_least_one_correct_count": 117,
+    "at_least_one_correct_rate": 0.39,
+    "exclusive_complementary_count": 70,
+    "combo_correct_exclusive_count": 36,
+    "combo_correct_exclusive_rate": 0.5142857142857142,
+    "combo_missed_single_oracle_correct_count": 35,
+    "combo_rescued_both_wrong_count": 4,
+    "oracle_accuracy": 0.39,
+    "oracle_balanced_accuracy": 0.39636123155215,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20267173,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 45,
+        "combo_correct": 45
+      },
+      "word_only_correct": {
+        "n": 26,
+        "combo_correct": 12
+      },
+      "char_only_correct": {
+        "n": 40,
+        "combo_correct": 25
+      },
+      "both_wrong": {
+        "n": 189,
+        "combo_correct": 1
+      }
+    },
+    "prediction_agreement_count": 140,
+    "prediction_agreement_rate": 0.4666666666666667,
+    "at_least_one_correct_count": 111,
+    "at_least_one_correct_rate": 0.37,
+    "exclusive_complementary_count": 66,
+    "combo_correct_exclusive_count": 37,
+    "combo_correct_exclusive_rate": 0.5606060606060606,
+    "combo_missed_single_oracle_correct_count": 29,
+    "combo_rescued_both_wrong_count": 1,
+    "oracle_accuracy": 0.37,
+    "oracle_balanced_accuracy": 0.36530477319951005,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20268182,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 64,
+        "combo_correct": 64
+      },
+      "word_only_correct": {
+        "n": 25,
+        "combo_correct": 12
+      },
+      "char_only_correct": {
+        "n": 46,
+        "combo_correct": 31
+      },
+      "both_wrong": {
+        "n": 165,
+        "combo_correct": 1
+      }
+    },
+    "prediction_agreement_count": 132,
+    "prediction_agreement_rate": 0.44,
+    "at_least_one_correct_count": 135,
+    "at_least_one_correct_rate": 0.45,
+    "exclusive_complementary_count": 71,
+    "combo_correct_exclusive_count": 43,
+    "combo_correct_exclusive_rate": 0.6056338028169014,
+    "combo_missed_single_oracle_correct_count": 28,
+    "combo_rescued_both_wrong_count": 1,
+    "oracle_accuracy": 0.45,
+    "oracle_balanced_accuracy": 0.441681468352005,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20269191,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 55,
+        "combo_correct": 53
+      },
+      "word_only_correct": {
+        "n": 26,
+        "combo_correct": 14
+      },
+      "char_only_correct": {
+        "n": 41,
+        "combo_correct": 20
+      },
+      "both_wrong": {
+        "n": 178,
+        "combo_correct": 3
+      }
+    },
+    "prediction_agreement_count": 131,
+    "prediction_agreement_rate": 0.43666666666666665,
+    "at_least_one_correct_count": 122,
+    "at_least_one_correct_rate": 0.4066666666666667,
+    "exclusive_complementary_count": 67,
+    "combo_correct_exclusive_count": 34,
+    "combo_correct_exclusive_rate": 0.5074626865671642,
+    "combo_missed_single_oracle_correct_count": 35,
+    "combo_rescued_both_wrong_count": 3,
+    "oracle_accuracy": 0.4066666666666667,
+    "oracle_balanced_accuracy": 0.39981277013403366,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  {
+    "seed": 20270200,
+    "n_samples": 300,
+    "groups": {
+      "both_correct": {
+        "n": 45,
+        "combo_correct": 44
+      },
+      "word_only_correct": {
+        "n": 13,
+        "combo_correct": 10
+      },
+      "char_only_correct": {
+        "n": 39,
+        "combo_correct": 23
+      },
+      "both_wrong": {
+        "n": 203,
+        "combo_correct": 2
+      }
+    },
+    "prediction_agreement_count": 143,
+    "prediction_agreement_rate": 0.4766666666666667,
+    "at_least_one_correct_count": 97,
+    "at_least_one_correct_rate": 0.3233333333333333,
+    "exclusive_complementary_count": 52,
+    "combo_correct_exclusive_count": 33,
+    "combo_correct_exclusive_rate": 0.6346153846153846,
+    "combo_missed_single_oracle_correct_count": 20,
+    "combo_rescued_both_wrong_count": 2,
+    "oracle_accuracy": 0.3233333333333333,
+    "oracle_balanced_accuracy": 0.3200908312662362,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  }
+]

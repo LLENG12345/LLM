@@ -1,20 +1,20 @@
 {
   "generator": "scripts/build_submission_notebook.py",
   "baseline_run_id": "s04_baseline_v1_20261118_01",
+  "stage": "S06-B shared-package generation; not the previous 0.311 submission artifact",
   "source_sha256": {
-    "notebooks/01_baseline.ipynb": "86e97b52218c206599907e62dda0d666d20a019fa6f1d8fb76e76dabf63ac132",
-    "scripts/run_s04.py": "e5e8f71f40d4e5867bef27a5ff8383ad9fa699417558e0f1e252122250af9165",
-    "scripts/run_s05.py": "75cf6c6c4008ca66c7292b127e89c998fd168f76be51e8d907226c01cfc2fa99",
-    "scripts/check_s05.py": "22900c977c14ba2fa02d5c88f81878aa6a0c1bf9e1645896134dcbe4744287ee",
-    "scripts/build_submission_notebook.py": "af86565b8ff603e0b553f7698d9091bff191b611f28b015f4b5afe21b9d86eb8"
+    "src/ntl/labels.py": "e0d14cd530e8b41c39a8febf09a7ee44ef2d1f7c5a32ea59296cc342eb9dc763",
+    "src/ntl/data.py": "555ca6a62f1b059922f523ab0e55a22173622f2f8697f95171aba40f594001c0",
+    "src/ntl/features.py": "907be5911e3909fb6231d5994696483388a29bff3655108066369514a18c6033",
+    "src/ntl/models.py": "8d30b154cb12d059c40bb896e4938de4a7273c807b0c1cab11f8641fbcace56c",
+    "src/ntl/submission.py": "e13cf21c62b7b249f4228859929f096aaaee7eb9372301b30cfcbee44e83dc31",
+    "scripts/build_submission_notebook.py": "9abad4e1377c064064387a6cf1fd1bd4e08040fc4e22fc43cf30a8604ab8c17a"
   },
   "baseline_config_sha256": "d3c09ebbef7332db9625922fed3544c6fbd28dfde78d9832e5855566f998a63f",
   "extraction": {
-    "input_and_labels": "01_baseline cell 2",
-    "model": "01_baseline cell 3",
-    "parameter_normalisation": "run_s04.py",
-    "fit_and_prediction": "run_s05.py",
-    "submission_contract": "check_s05.py"
+    "input_and_labels": "src/ntl/data.py + labels.py",
+    "model_and_config": "src/ntl/features.py + models.py",
+    "fit_prediction_submission": "src/ntl/submission.py"
   },
-  "notebook_sha256": "adcd730607e42e00721bbafa6b0002696fa7de08bb126c488927a90e61a631db"
+  "notebook_sha256": "cf5962076334a3ef473cce182b50be4186a1486b1ee396ec13ade200646d5b86"
 }

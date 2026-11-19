@@ -1,0 +1,193 @@
+{
+  "status": "passed",
+  "stage": "S07-B/B3-C",
+  "run_id": "s07b_b3c_char_style_v1_20261119_01",
+  "new_official_pipeline_fits": 6,
+  "smoke_fits": 1,
+  "formal_fits": 5,
+  "failed_training_retries": 0,
+  "test_classifier_fits": 0,
+  "test_groups": 43,
+  "test_composition": {
+    "new": 9,
+    "related": 34
+  },
+  "protected_files": 1085,
+  "current_byte_identical": 1084,
+  "unexpected_changed_files": [],
+  "ledger_rows_appended": 1,
+  "criteria": [
+    {
+      "id": 1,
+      "name": "independent_config",
+      "passed": true,
+      "evidence": "Only branches remove Word; B3 file unchanged and all actual common parameters equal"
+    },
+    {
+      "id": 2,
+      "name": "word_absent",
+      "passed": true,
+      "evidence": "Constructor/fit spies see char only for B3-C; union contains char/style only"
+    },
+    {
+      "id": 3,
+      "name": "common_parameters_preserved",
+      "passed": true,
+      "evidence": "Actual char/style/LinearSVC get_params identical to B3"
+    },
+    {
+      "id": 4,
+      "name": "style_unchanged",
+      "passed": true,
+      "evidence": "Style module and names/formula raw hashes unchanged; same outputs and scaling; per-fold audit byte identical"
+    },
+    {
+      "id": 5,
+      "name": "fold_isolation",
+      "passed": true,
+      "evidence": "New per-fold Pipeline; split IDs byte-identical to B3; prompt isolation and training-only scaler validated"
+    },
+    {
+      "id": 6,
+      "name": "formal_completed",
+      "passed": true,
+      "evidence": "One validated smoke + five formal folds; six real fits, zero training failures/retries"
+    },
+    {
+      "id": 7,
+      "name": "oof_complete",
+      "passed": true,
+      "evidence": "2699 original-order unique official IDs"
+    },
+    {
+      "id": 8,
+      "name": "scores_aligned",
+      "passed": true,
+      "evidence": "Finite 2699x18 margins, official class_order and argmax prediction check"
+    },
+    {
+      "id": 9,
+      "name": "metrics_recomputed",
+      "passed": true,
+      "evidence": "Independent readback for BA/Acc/F1/recalls/confusion plus factorial and paired counts"
+    },
+    {
+      "id": 10,
+      "name": "sparse_masks_reused",
+      "passed": true,
+      "evidence": "50 model x seed scores, same frozen mask; original 40 scores identical within 1e-15"
+    },
+    {
+      "id": 11,
+      "name": "default_preserved",
+      "passed": true,
+      "evidence": "B0 complete config/get_params unchanged; no candidate Notebook generation or submission"
+    },
+    {
+      "id": 12,
+      "name": "data_folds_preserved",
+      "passed": true,
+      "evidence": "All original files and folds_v1/v2 CSV/metadata raw SHA unchanged"
+    },
+    {
+      "id": 13,
+      "name": "history_preserved",
+      "passed": true,
+      "evidence": "1084 current files identical; CSV prefix preserved with one real row appended; B0-B3 source/config/results protected"
+    },
+    {
+      "id": 14,
+      "name": "tests_regression",
+      "passed": true,
+      "evidence": "9 new + 34 related tests passed; no skipped final tests; inherited exclusions and unrun historical suites documented"
+    },
+    {
+      "id": 15,
+      "name": "git_diff_check",
+      "passed": true,
+      "evidence": "exit 0; no whitespace errors; legacy line-ending advisories only"
+    }
+  ],
+  "data_fold_mask_sha256": {
+    "data/name-that-llm/sample_submission.parquet": "ccf86796b80fd7f83d8463664603fd1208e17559abcf416f198776b819646188",
+    "data/name-that-llm/test.csv": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "data/name-that-llm/train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "experiments/folds/folds_v1.csv": "9e5e0f3db0a359bf314f904862a22d70db92b27c1d91eeb414d8b554e3556af7",
+    "experiments/folds/folds_v1_metadata.json": "665aa28c5d03fe2f301be041da39712f08c54779cbce6e730a343de3405a6811",
+    "experiments/folds/folds_v2.csv": "372aad22faa6de3059d1a26a78d4232199c6427e6249f92c28d9ce2dcabfdba8",
+    "experiments/folds/folds_v2_metadata.json": "f1763fd7a591dd9565452cfdc12d27f7b5a2757e4f508cecdeb1c0460e4ab35a",
+    "experiments/folds/README.md": "8bc3bd2da032cd5aa190a90d81452053c10a6457114a712ac5b3a8aa85fc4700",
+    "experiments/evaluation_masks/sparse_k2_v1/freeze-receipt.json": "87111dd1c8e238af63cb75ee1cb47eef050453c91c8f0b5947d8ca9775621264",
+    "experiments/evaluation_masks/sparse_k2_v1/masks.csv": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+    "experiments/evaluation_masks/sparse_k2_v1/metadata.json": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8"
+  },
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "check-ignore",
+        "configs/s07b_b3c_char_style.json",
+        "experiments/s07b_b3c_char_style_v1_20261119_01/metrics.json"
+      ],
+      "exit_code": 1
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "test_proof_sha256": "c2d896ff97df3948c8b251048b7899e3551f78e3cb4b0383fa67080d1f7650b9",
+  "final_log_sha256": "565d4415715400031a1605cf2e50bc522e07bf318a7118bd823bc157c5406c34",
+  "plan_sha256": "b2e246496641e519e5ff5a20d39aa64bfd2478f95c57832391e6ff01d3a0a7dd",
+  "log_sha256": "023f63b8c2fc668213406b609848befe5f5085e7ccadf9dc25672f61f26b4e65",
+  "decision": "retain B3 and B3-C; default B0 unchanged; B4 independent B0+morphology design unchanged",
+  "not_run": [
+    "old models retraining",
+    "v2 training/model choice",
+    "complete S01-S06 training/capacity suites",
+    "inherited B3 regression exclusions: synthetic classifier fit and pre-S07A active-source freeze"
+  ],
+  "notebook_generated": false,
+  "kaggle_submitted": false,
+  "legacy_issues": [
+    "Rules",
+    "external resource approval",
+    "tracked CSV",
+    "Jupyter",
+    "deep EDA/near duplicates",
+    "candidate Notebook generation"
+  ]
+}

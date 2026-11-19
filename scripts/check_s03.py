@@ -14,38 +14,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_context():
-    nb = json.loads((ROOT / 'notebooks/01_baseline.ipynb').read_text(encoding='utf-8'))
-    ns = {}
-    exec(''.join(nb['cells'][1]['source']), ns)
-    exec(''.join(nb['cells'][2]['source']).split('train, test, sample_submission, data_summary =')[0], ns)
-    exec(''.join(nb['cells'][3]['source']).split('def make_model():')[0], ns)
-    return ns, nb
-
-
-def basic_analysis(train, test):
-    duplicate_text = train['text'].duplicated(keep=False)
-    conflict_text = train.groupby('text')['model'].transform('nunique') > 1
-    duplicate_pair = train.duplicated(['prompt_id', 'model'], keep=False)
-    counts = train.groupby('prompt_id').size()
-    issues = {'duplicate_ids': train.loc[train['id'].duplicated(keep=False), 'id'].tolist(),
-              'duplicate_text_ids': train.loc[duplicate_text, 'id'].tolist(),
-              'conflicting_text_ids': train.loc[conflict_text, 'id'].tolist(),
-              'duplicate_prompt_model_ids': train.loc[duplicate_pair, 'id'].tolist(),
-              'train_test_id_overlap': sorted(set(train['id']) & set(test['id'])),
-              'train_test_text_overlap_ids': train.loc[train['text'].isin(test['text']), 'id'].tolist()}
-    lengths = pd.DataFrame({'id': train['id'], 'model': train['model'],
-                            'characters': train['text'].str.len(),
-                            'words': train['text'].str.split().str.len(),
-                            'newlines': train['text'].str.count('\n'),
-                            'ascii_punctuation': train['text'].str.count(r'[.,;:!?]')})
-    by_model = lengths.groupby('model')[['characters', 'words', 'newlines', 'ascii_punctuation']].agg(['mean', 'median', 'min', 'max'])
-    return {'rows': len(train), 'test_example_rows': len(test),
-            'class_counts': {str(k): int(v) for k, v in train['model'].value_counts().sort_index().items()},
-            'prompt_count': int(len(counts)),
-            'prompt_size_distribution': {str(k): int(v) for k, v in counts.value_counts().sort_index().items()},
-            'issues': issues, 'length_summary': lengths[['characters', 'words', 'newlines', 'ascii_punctuation']].describe().to_dict(),
-            'near_duplicate_status': 'deferred; only exact comparisons performed'}, lengths, by_model
+from _common import load_context
+from ntl.analysis import basic_analysis
 
 
 class FoldTests(unittest.TestCase):
@@ -129,9 +99,6 @@ class FoldTests(unittest.TestCase):
         from check_baseline_structure import check_baseline_structure
         check_baseline_structure(self.nb, ROOT)
         # Fit a tiny disjoint synthetic corpus, never the official training set.
-        tree = ast.parse(''.join(self.nb['cells'][3]['source']))
-        factory = next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == 'make_model')
-        exec(compile(ast.Module(body=[factory], type_ignores=[]), 'model_factory', 'exec'), self.ns)
         model = self.ns['make_model']()
         model.fit(['alpha beta first', 'alpha beta second', 'gamma delta first', 'gamma delta second'], ['a', 'a', 'b', 'b'])
         word = model.named_steps['features'].transformer_list[0][1]
@@ -158,7 +125,7 @@ def main():
     result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(FoldTests))
     if not result.wasSuccessful(): raise SystemExit(1)
     report, _, _ = basic_analysis(train, test)
-    out = ROOT / 'artifacts/s03'; out.mkdir(parents=True, exist_ok=True)
+    out = Path(__import__('os').environ.get('NAME_THAT_LLM_S03_REPORT_DIR', str(ROOT / 'artifacts/s03'))); out.mkdir(parents=True, exist_ok=True)
     (out / 'basic-summary.json').write_text(json.dumps(report, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     previous_path = ROOT / 'artifacts/s02/input-summary.json'
     previous = json.loads(previous_path.read_text(encoding='utf-8')) if previous_path.exists() else input_summary

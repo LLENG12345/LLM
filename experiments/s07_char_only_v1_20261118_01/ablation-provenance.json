@@ -1,0 +1,27 @@
+{
+  "run_id": "s07_char_only_v1_20261118_01",
+  "branch": "char",
+  "mode": "formal",
+  "cli_arguments": [
+    "scripts/run_experiment.py",
+    "--mode",
+    "formal",
+    "--run-id",
+    "s07_char_only_v1_20261118_01",
+    "--config",
+    "configs/s07_char_only.json",
+    "--purpose",
+    "s07_word_char_ablation",
+    "--smoke-run",
+    "s07_char_only_v1_smoke_20261118_01"
+  ],
+  "configuration_sha256": "74819bec8bbf7934c7c45e6d6301d6eab64c19f0905b523a2f5483fe63c67a11",
+  "only_changed_setting": {
+    "branches": [
+      "char"
+    ]
+  },
+  "baseline_reference": "s06b_equivalence_cv_20261118_01",
+  "hypothesis": "H1 word signal; H2 char signal; H3 complementarity and default concatenation benefit",
+  "parent_model_configuration": "S06-B default word+char; classifier and enabled vectorizer settings unchanged"
+}

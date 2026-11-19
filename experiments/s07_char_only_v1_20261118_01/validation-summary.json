@@ -1,0 +1,41 @@
+{
+  "status": "validated",
+  "run_id": "s07_char_only_v1_20261118_01",
+  "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "oof_rows": 2699,
+  "n_classes": 18,
+  "active_branch": "char",
+  "feature_dimensions": [
+    {
+      "char": 80000
+    },
+    {
+      "char": 80000
+    },
+    {
+      "char": 80000
+    },
+    {
+      "char": 80000
+    },
+    {
+      "char": 80000
+    }
+  ],
+  "n_features": [
+    80000,
+    80000,
+    80000,
+    80000,
+    80000
+  ],
+  "independent_saved_run_check": true,
+  "default_configuration_unchanged": true,
+  "kaggle_public_score": null
+}

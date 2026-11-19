@@ -1,0 +1,172 @@
+{
+  "run_ids": {
+    "combo": "s06b_equivalence_cv_20261118_01",
+    "word": "s07_word_only_v1_20261118_01",
+    "char": "s07_char_only_v1_20261118_01"
+  },
+  "baseline_retrained": false,
+  "n_train": 2699,
+  "n_prompts": 150,
+  "class_order": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "primary_metric": "OOF balanced accuracy",
+  "highest_oof_ba": "char",
+  "overall": [
+    {
+      "experiment": "combo",
+      "run_id": "s06b_equivalence_cv_20261118_01",
+      "balanced_accuracy": 0.3074372358936117,
+      "accuracy": 0.30752130418673584,
+      "macro_f1": 0.29563837885578176,
+      "mean_fold_balanced_accuracy": 0.3074457215836526,
+      "std_fold_balanced_accuracy_ddof0": 0.01119196663726874,
+      "total_fit_seconds": 38.29195759999857,
+      "total_predict_seconds": 3.887045200001012,
+      "total_decision_seconds": 4.138824400004523,
+      "total_inference_seconds": 8.025869600005535,
+      "warning_count": 0,
+      "ba_minus_combo": 0.0,
+      "ba_minus_combo_pp": 0.0,
+      "feature_dimensions_by_fold": "120000,119934,120000,120000,120000",
+      "dimension_origin": "sum of actual same-fold standalone branch vocabularies; inferred for historical FeatureUnion"
+    },
+    {
+      "experiment": "word",
+      "run_id": "s07_word_only_v1_20261118_01",
+      "balanced_accuracy": 0.2626124782500621,
+      "accuracy": 0.2626898851426454,
+      "macro_f1": 0.24836452299775585,
+      "mean_fold_balanced_accuracy": 0.26260536398467427,
+      "std_fold_balanced_accuracy_ddof0": 0.01728156708887876,
+      "total_fit_seconds": 4.216901699990558,
+      "total_predict_seconds": 0.3838022999916575,
+      "total_decision_seconds": 0.3676084000035189,
+      "total_inference_seconds": 0.7514106999951764,
+      "warning_count": 0,
+      "ba_minus_combo": -0.044824757643549595,
+      "ba_minus_combo_pp": -4.48247576435496,
+      "feature_dimensions_by_fold": "40000,39934,40000,40000,40000",
+      "dimension_origin": "observed fitted vocabularies and classifier coefficient width"
+    },
+    {
+      "experiment": "char",
+      "run_id": "s07_char_only_v1_20261118_01",
+      "balanced_accuracy": 0.31447924434501606,
+      "accuracy": 0.3145609484994442,
+      "macro_f1": 0.3040800321272971,
+      "mean_fold_balanced_accuracy": 0.3145083014048532,
+      "std_fold_balanced_accuracy_ddof0": 0.01686478645195973,
+      "total_fit_seconds": 34.97931639999297,
+      "total_predict_seconds": 3.6630896999995457,
+      "total_decision_seconds": 3.63359309999214,
+      "total_inference_seconds": 7.296682799991686,
+      "warning_count": 0,
+      "ba_minus_combo": 0.007042008451404347,
+      "ba_minus_combo_pp": 0.7042008451404347,
+      "feature_dimensions_by_fold": "80000,80000,80000,80000,80000",
+      "dimension_origin": "observed fitted vocabularies and classifier coefficient width"
+    }
+  ],
+  "stability": {
+    "word": {
+      "folds_above_combo": 0,
+      "folds_below_combo": 5,
+      "folds_tied_combo": 0,
+      "paired_mean_fold_delta": -0.04484035759897827
+    },
+    "char": {
+      "folds_above_combo": 4,
+      "folds_below_combo": 1,
+      "folds_tied_combo": 0,
+      "paired_mean_fold_delta": 0.007062579821200543
+    }
+  },
+  "complementarity": {
+    "n_samples": 2699,
+    "groups": {
+      "both_correct": {
+        "n": 482,
+        "combo_correct": 479
+      },
+      "word_only_correct": {
+        "n": 227,
+        "combo_correct": 119
+      },
+      "char_only_correct": {
+        "n": 367,
+        "combo_correct": 204
+      },
+      "both_wrong": {
+        "n": 1623,
+        "combo_correct": 28
+      }
+    },
+    "prediction_agreement_count": 1201,
+    "prediction_agreement_rate": 0.44497962208225267,
+    "at_least_one_correct_count": 1076,
+    "at_least_one_correct_rate": 0.3986661726565395,
+    "exclusive_complementary_count": 594,
+    "combo_correct_exclusive_count": 323,
+    "combo_correct_exclusive_rate": 0.5437710437710438,
+    "combo_missed_single_oracle_correct_count": 274,
+    "combo_rescued_both_wrong_count": 28,
+    "oracle_accuracy": 0.3986661726565395,
+    "oracle_balanced_accuracy": 0.3985707183693761,
+    "oracle_is_deployable": false,
+    "oracle_note": "Truth-assisted choice between the two fixed single-branch predictions only; not a deployable score, guaranteed ensemble result, or bound on the combined-feature classifier."
+  },
+  "prompt_bootstrap": {
+    "unit": "prompt",
+    "n_prompts": 150,
+    "repeats": 5000,
+    "seed": 20261118,
+    "intervals": {
+      "word_minus_combo": {
+        "observed_delta": -0.044824757643549595,
+        "percentile_95_lower": -0.05779281630623907,
+        "percentile_95_upper": -0.0314814814814815
+      },
+      "char_minus_combo": {
+        "observed_delta": 0.007042008451404347,
+        "percentile_95_lower": -0.0048123912503107765,
+        "percentile_95_upper": 0.0192617449664429
+      },
+      "char_minus_word": {
+        "observed_delta": 0.05186676609495394,
+        "percentile_95_lower": 0.034133656615799576,
+        "percentile_95_upper": 0.0689248974011678
+      }
+    },
+    "limitation": "Conditional uncertainty reference for the current fixed OOF differences; preserves within-prompt dependence, does not retrain models or model dependence from overlapping CV training sets. Not an independent-test significance claim."
+  },
+  "default_baseline_replaced": false,
+  "kaggle_submission": "not executed",
+  "dimension_note": "sum of actual same-fold standalone branch vocabularies; inferred for historical FeatureUnion",
+  "cost_note": "Same perf_counter boundaries: fold fit, predict, decision separately. Historical baseline and new runs occur at different times; no hardware-controlled speedup claim. RSS are snapshots; peak_wset is process-lifetime, not independent per-fold peaks.",
+  "hypothesis_note": "Single-branch predictive signal and complementary correct sets can be measured. Scores alone do not isolate causal contributions of vocabulary, punctuation or suffixes; conclusions apply to these settings, including changed total vector norm when a branch is removed.",
+  "input_sha256": {
+    "sample_submission.parquet": "ccf86796b80fd7f83d8463664603fd1208e17559abcf416f198776b819646188",
+    "test.csv": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "folds_v1.csv": "9e5e0f3db0a359bf314f904862a22d70db92b27c1d91eeb414d8b554e3556af7",
+    "folds_v1_metadata.json": "665aa28c5d03fe2f301be041da39712f08c54779cbce6e730a343de3405a6811"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "status": "validated",
+  "run_id": "s07_word_only_v1_20261118_01",
+  "folds": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "oof_rows": 2699,
+  "n_classes": 18,
+  "active_branch": "word",
+  "feature_dimensions": [
+    {
+      "word": 40000
+    },
+    {
+      "word": 39934
+    },
+    {
+      "word": 40000
+    },
+    {
+      "word": 40000
+    },
+    {
+      "word": 40000
+    }
+  ],
+  "n_features": [
+    40000,
+    39934,
+    40000,
+    40000,
+    40000
+  ],
+  "independent_saved_run_check": true,
+  "default_configuration_unchanged": true,
+  "kaggle_public_score": null
+}

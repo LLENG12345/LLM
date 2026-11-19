@@ -1,0 +1,24 @@
+{
+  "milestone": "V1.0",
+  "status": "passed",
+  "task_ids": [
+    "S06-01",
+    "S06-02",
+    "S06-03",
+    "S06-04",
+    "S06-05",
+    "S06-06",
+    "S06-07"
+  ],
+  "protected_files_unchanged": 208,
+  "shared_package_tests": 11,
+  "s02_tests": 14,
+  "s03_tests": 7,
+  "s04_tests": 4,
+  "s05_tests": 13,
+  "git_diff_check_exit_code": 0,
+  "final_notebook_code_equals_executed": true,
+  "original_first_submission_preserved": true,
+  "new_notebook_submitted": false,
+  "git_commit": "7d678c50a1e63e32631963e3975adae2fd494497"
+}

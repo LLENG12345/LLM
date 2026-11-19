@@ -1,0 +1,165 @@
+{
+  "status": "local_notebook_validated",
+  "cells": 15,
+  "code_cells": 7,
+  "execution": "isolated ordinary Python -I; not Jupyter, container or Kaggle",
+  "jupyter": "not retested; prior kernel start limitation retained",
+  "kaggle_runtime": "not executed",
+  "kaggle_submission": "not executed",
+  "full_model_parameters_equal": true,
+  "s05_labels_equal": true,
+  "s05_decision_scores_equal": true,
+  "official_run": {
+    "status": "local_runtime_validated",
+    "n_train": 2699,
+    "n_prompts": 150,
+    "n_test": 3,
+    "fit_seconds": 9.38316350000241,
+    "prediction_seconds": 0.015942999998515006,
+    "fit_warning_count": 0,
+    "prediction_warning_count": 0,
+    "python": "3.12.10",
+    "versions": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "pyarrow": "26.0.1"
+    },
+    "class_order": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "model_parameters_sha256": "a713373a517123463691523ca29e2f1d3601426cd06bf23504d4bac22f51b1bd",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "test_sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "submission_path": "C:\\Users\\99330\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{a60b9cb6-a790-4f2e-9a45-366e21d0dda9}\\Temp\\ntl-s06a-jm3n6_ak\\output\\submission.parquet",
+    "submission_sha256": "12209416456505034751a82b190ae037e1b026164a149e666b2990ee1ec005fd",
+    "write_read_equal": true,
+    "fitted_state_unchanged": true
+  },
+  "different_test_run": {
+    "status": "local_runtime_validated",
+    "n_train": 2699,
+    "n_prompts": 150,
+    "n_test": 17,
+    "fit_seconds": 11.266511300000275,
+    "prediction_seconds": 0.055549799999425886,
+    "fit_warning_count": 0,
+    "prediction_warning_count": 0,
+    "python": "3.12.10",
+    "versions": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "pyarrow": "26.0.1"
+    },
+    "class_order": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "model_parameters_sha256": "a713373a517123463691523ca29e2f1d3601426cd06bf23504d4bac22f51b1bd",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "test_sha256": "f7cacffe426d45f4e763cb7a554ac317bc3aebc83f5253ad605ea88cba8e3eb0",
+    "submission_path": "C:\\Users\\99330\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{a60b9cb6-a790-4f2e-9a45-366e21d0dda9}\\Temp\\ntl-s06a-y8rfiz72\\output\\submission.parquet",
+    "submission_sha256": "c638a15a856a0d3c3e15e0be397448b2d83b2704413a8363414d8ebe134eee10",
+    "write_read_equal": true,
+    "fitted_state_unchanged": true
+  },
+  "variable_counts": [
+    {
+      "rows": 0,
+      "batch_size": 128,
+      "seconds": 0.0168615000002319
+    },
+    {
+      "rows": 1,
+      "batch_size": 128,
+      "seconds": 0.024350500003492925
+    },
+    {
+      "rows": 257,
+      "batch_size": 128,
+      "seconds": 0.8807722000019567
+    },
+    {
+      "rows": 4000,
+      "batch_size": 128,
+      "seconds": 12.34377929999755
+    }
+  ],
+  "changed_training_rejected": true,
+  "guards": {
+    "network_denial_probe_pass": true,
+    "repository_denial_probe_pass": true,
+    "notebook_network_attempts": 0,
+    "notebook_repository_attempts": 0,
+    "note": "Python audit guards, not an OS/container sandbox; installed environment packages allowed"
+  },
+  "regressions": {
+    "s01": {
+      "exit_code": 0,
+      "seconds": 4.2531377999985125
+    },
+    "s02": {
+      "exit_code": 0,
+      "seconds": 4.5524031999993895
+    },
+    "s03": {
+      "exit_code": 0,
+      "seconds": 5.860873999998148
+    },
+    "s04-check": {
+      "exit_code": 0,
+      "seconds": 4.682011600001715
+    },
+    "s04-test": {
+      "exit_code": 0,
+      "seconds": 8.15592579999793
+    },
+    "s05-check": {
+      "exit_code": 0,
+      "seconds": 5.475802400000248
+    },
+    "s05-test": {
+      "exit_code": 0,
+      "seconds": 24.49967679999827
+    }
+  },
+  "protected_files_unchanged": 208,
+  "git_diff_check_exit_code": 0,
+  "notebook_sha256": "594cbdac5b472a7bc16b72fd59670c41ceffbde3667b7ef0afb1fe8898408848"
+}

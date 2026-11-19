@@ -2,6 +2,8 @@
 
 本轮交付 `notebooks/99_submission.ipynb`，只含完整基线拟合、运行时预测及 Parquet 写后校验。它由权威代码生成，不需要上传 scripts、src、模型、分折或本地仓库。标准 Jupyter、Kaggle 保存版本运行和正式评分是不同状态；本地普通 Python 验收不能替代它们。
 
+S06-B 更新：旧版 371057481 已由用户确认取得 0.311 且上传后未改代码。当前同名文件现由公共模块重新生成，本轮未再次提交，不能将其字节指纹当作旧评分版本。旧来源指纹/提交归档和新等价性记录分别保存；实际远端环境等未知项仍保留。
+
 ## 官方信息复核（2026-11-18）
 
 直接打开本比赛 Overview、Data、Rules、Code 及文档动态页面均无可读正文；下列可确认项来自官方 URL 的检索正文，存在索引延迟，不等同于已登录的实时比赛界面。没有读取 Cookie、密码或 API Token，没有访问或操作账户。
@@ -40,7 +42,7 @@
 ```powershell
 .\.venv\Scripts\python.exe scripts/build_submission_notebook.py
 .\.venv\Scripts\python.exe scripts/build_submission_notebook.py --check
-.\.venv\Scripts\python.exe scripts/check_s06a.py --regressions --output-dir artifacts/s06a/validation-new
+.\.venv\Scripts\python.exe scripts/check_s06a.py --regressions --checkpoint artifacts/s06b/before.json --output-dir artifacts/s06b/notebook-validation-new
 ```
 
 检查输出目录必须尚不存在。Notebook 本身优先使用环境变量 `NAME_THAT_LLM_DATA_DIR`，其次检查概览给出的官方路径；若不存在，则查找 /kaggle/input 下同时有 train/test 的唯一候选。候选不唯一或显式路径无效时明确失败。自动发现不是认定另一条路径是官方标准，后续仍校验训练数据 SHA-256。

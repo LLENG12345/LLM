@@ -1,0 +1,43 @@
+{
+  "evaluation_id": "s07a_protocol_20261119_01",
+  "kind": "historical OOF resampling; not a trained-model experiment",
+  "started_utc": "2026-11-19T01:36:42.540669+00:00",
+  "completed_utc": "2026-11-19T01:36:46.572411+00:00",
+  "new_model_fits": 0,
+  "fit_guards_enabled_by_cli": true,
+  "masks_frozen_utc": "2026-11-19T01:33:42.540238+00:00",
+  "mask_sha256": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+  "mask_metadata_sha256": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8",
+  "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+  "folds_v1_sha256": "9e5e0f3db0a359bf314f904862a22d70db92b27c1d91eeb414d8b554e3556af7",
+  "class_order": [
+    "claude-fable-5",
+    "claude-opus-4-6",
+    "claude-opus-4-8",
+    "claude-opus-5",
+    "claude-sonnet-5",
+    "gemini-3.1-pro-preview",
+    "gemini-3.6-flash",
+    "gemini-3.7-flash",
+    "gemini-3.8-flash",
+    "glm-5.3",
+    "glm-5.3-flash",
+    "gpt-5.5",
+    "gpt-5.6-luna",
+    "gpt-5.6-sol",
+    "gpt-5.6-terra",
+    "gpt-6-astra",
+    "kimi-k3",
+    "qwen3.8-max"
+  ],
+  "source_sha256": {
+    "scripts/run_s07a.py": "5f40c25eab12f86f75c4f3991d464a370fde9d9be0f1885a663c4f4ffe1e8b7f",
+    "scripts/analyze_s07.py": "0fee1eece411f7f0d82689f87aca17dcfe92ac66d31df4fbcff73c06b16357ed",
+    "src/ntl/evaluation.py": "caf5c7d326fe31cd64d72e5e32edb8aef370e1282974b940a7dd7a702929f2d7",
+    "src/ntl/labels.py": "e0d14cd530e8b41c39a8febf09a7ee44ef2d1f7c5a32ea59296cc342eb9dc763"
+  },
+  "primary_protocol": "full_group_cv",
+  "sparse_role": "supplementary candidate only",
+  "public_correlation": "not estimable: one independent public feedback score",
+  "uncertainty": "10 overlapping masks describe subsampling variation conditional on fixed OOF; not independent test/fit replicates; no CI calculated"
+}

@@ -1,0 +1,7 @@
+feature,lowest_class,lowest_mean,highest_class,highest_mean
+word_length_mean,claude-opus-5,5.019029267628988,gemini-3.7-flash,5.928833745320638
+sentence_word_count_mean,gemini-3.1-pro-preview,20.28524507522583,claude-opus-4-6,27.581592566172283
+pattern_comma_semicolon_colon_per100words,gemini-3.1-pro-preview,7.876062753995259,qwen3.8-max,12.579893582661947
+pattern_curly_quote_per100words,claude-fable-5,0.0,gpt-5.6-sol,1.168392114241918
+pattern_digit_per100words,gemini-3.8-flash,0.1276177978515625,glm-5.3,0.6839513874053955
+function_the_per100words,claude-sonnet-5,4.083778010209401,claude-opus-5,6.053955905437469

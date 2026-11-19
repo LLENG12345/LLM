@@ -1,0 +1,116 @@
+{
+  "stage": "S06-B",
+  "kind": "baseline-equivalence review; no algorithm optimization",
+  "cv_run": "s06b_equivalence_cv_20261118_01",
+  "full_run": "s06b_equivalence_full_20261118_01",
+  "historical_baseline": "s04_baseline_v1_20261118_01",
+  "historical_full": "s05_full_baseline_20261118_01",
+  "first_kaggle_public_score": 0.311,
+  "first_kaggle_saved_version_url": "https://www.kaggle.com/code/abcde1232121/notebookceeabf3006?scriptVersionId=371057481",
+  "first_kaggle_source_sha256": "adcd730607e42e00721bbafa6b0002696fa7de08bb126c488927a90e61a631db",
+  "first_kaggle_binding_basis": "explicit user confirmation; remote bytes/environment not independently verified",
+  "regenerated_notebook_sha256": "cf5962076334a3ef473cce182b50be4186a1486b1ee396ec13ade200646d5b86",
+  "regenerated_notebook_submitted": false,
+  "package_test_groups": 11,
+  "historical_protected_files": 208,
+  "historical_hashes_unchanged": true,
+  "regressions": {
+    "s01": {
+      "exit_code": 0,
+      "seconds": 4.2531377999985125
+    },
+    "s02": {
+      "exit_code": 0,
+      "seconds": 4.5524031999993895
+    },
+    "s03": {
+      "exit_code": 0,
+      "seconds": 5.860873999998148
+    },
+    "s04-check": {
+      "exit_code": 0,
+      "seconds": 4.682011600001715
+    },
+    "s04-test": {
+      "exit_code": 0,
+      "seconds": 8.15592579999793
+    },
+    "s05-check": {
+      "exit_code": 0,
+      "seconds": 5.475802400000248
+    },
+    "s05-test": {
+      "exit_code": 0,
+      "seconds": 24.49967679999827
+    }
+  },
+  "oof_max_absolute_error": 0.0,
+  "full_model_test_max_absolute_error": 0.0,
+  "official_notebook_run": {
+    "status": "local_runtime_validated",
+    "n_train": 2699,
+    "n_prompts": 150,
+    "n_test": 3,
+    "fit_seconds": 9.38316350000241,
+    "prediction_seconds": 0.015942999998515006,
+    "fit_warning_count": 0,
+    "prediction_warning_count": 0,
+    "python": "3.12.10",
+    "versions": {
+      "numpy": "2.5.4",
+      "pandas": "3.1.0",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1",
+      "pyarrow": "26.0.1"
+    },
+    "class_order": [
+      "claude-fable-5",
+      "claude-opus-4-6",
+      "claude-opus-4-8",
+      "claude-opus-5",
+      "claude-sonnet-5",
+      "gemini-3.1-pro-preview",
+      "gemini-3.6-flash",
+      "gemini-3.7-flash",
+      "gemini-3.8-flash",
+      "glm-5.3",
+      "glm-5.3-flash",
+      "gpt-5.5",
+      "gpt-5.6-luna",
+      "gpt-5.6-sol",
+      "gpt-5.6-terra",
+      "gpt-6-astra",
+      "kimi-k3",
+      "qwen3.8-max"
+    ],
+    "model_parameters_sha256": "a713373a517123463691523ca29e2f1d3601426cd06bf23504d4bac22f51b1bd",
+    "train_sha256": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "test_sha256": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "submission_path": "C:\\Users\\99330\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\AC\\#!sandbox.{a60b9cb6-a790-4f2e-9a45-366e21d0dda9}\\Temp\\ntl-s06a-jm3n6_ak\\output\\submission.parquet",
+    "submission_sha256": "12209416456505034751a82b190ae037e1b026164a149e666b2990ee1ec005fd",
+    "write_read_equal": true,
+    "fitted_state_unchanged": true
+  },
+  "v1_0_acceptance": "passed with recorded remote-metadata limitations",
+  "limits": [
+    "S01 tracked raw CSV exception",
+    "S00 Rules/account metadata unverified",
+    "No independent remote code/environment retrieval",
+    "Jupyter kernel limitation retained",
+    "S03 deferred EDA/near-duplicate research"
+  ],
+  "source_sha256": {
+    "src/ntl/__init__.py": "792253b12b70caedfaebbadd8b6aeeccf07d72e7323720f309a08c43a88ac020",
+    "src/ntl/analysis.py": "c26789357d5f633272a4cdc78fe2647a09304900eb16d0c218ac1915d6b75aa9",
+    "src/ntl/data.py": "555ca6a62f1b059922f523ab0e55a22173622f2f8697f95171aba40f594001c0",
+    "src/ntl/experiments.py": "3df4e9134e2cb1b4c9fbc32e5be1004a47dc6143143b07cc076dc30a3754f7f3",
+    "src/ntl/features.py": "907be5911e3909fb6231d5994696483388a29bff3655108066369514a18c6033",
+    "src/ntl/io.py": "768a42216565f16726fa5ed3e7084fb59a07ef84b585492ca0c31513a5c3c97e",
+    "src/ntl/labels.py": "e0d14cd530e8b41c39a8febf09a7ee44ef2d1f7c5a32ea59296cc342eb9dc763",
+    "src/ntl/metrics.py": "d8adc679b599ce7d2ec3c6cfb48109d33faeadbd3f00528d4037d73eac746189",
+    "src/ntl/models.py": "8d30b154cb12d059c40bb896e4938de4a7273c807b0c1cab11f8641fbcace56c",
+    "src/ntl/splits.py": "c0c1831534d482302aaf7c90b0e54842a234f65f78ba1e70abb87a55c6fb9c0a",
+    "src/ntl/submission.py": "e13cf21c62b7b249f4228859929f096aaaee7eb9372301b30cfcbee44e83dc31",
+    "src/ntl/validation.py": "d43fed66635d60116b708105d932fed515c4f5974c60e8a7fba91b9861b26394"
+  }
+}

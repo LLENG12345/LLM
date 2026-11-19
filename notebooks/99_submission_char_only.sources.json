@@ -1,0 +1,27 @@
+{
+  "generator": "scripts/build_char_submission.py",
+  "baseline_run_id": "s04_baseline_v1_20261118_01",
+  "stage": "S06-B shared-package generation; not the previous 0.311 submission artifact",
+  "source_sha256": {
+    "src/ntl/labels.py": "e0d14cd530e8b41c39a8febf09a7ee44ef2d1f7c5a32ea59296cc342eb9dc763",
+    "src/ntl/data.py": "555ca6a62f1b059922f523ab0e55a22173622f2f8697f95171aba40f594001c0",
+    "src/ntl/features.py": "907be5911e3909fb6231d5994696483388a29bff3655108066369514a18c6033",
+    "src/ntl/models.py": "8d30b154cb12d059c40bb896e4938de4a7273c807b0c1cab11f8641fbcace56c",
+    "src/ntl/submission.py": "e13cf21c62b7b249f4228859929f096aaaee7eb9372301b30cfcbee44e83dc31",
+    "scripts/build_submission_notebook.py": "9abad4e1377c064064387a6cf1fd1bd4e08040fc4e22fc43cf30a8604ab8c17a",
+    "scripts/build_char_submission.py": "708c36fdfc441856bc5f9809daad6d6af5a6b523e1524144e7ec2fe7ccb55066",
+    "configs/s07_char_only.json": "74819bec8bbf7934c7c45e6d6301d6eab64c19f0905b523a2f5483fe63c67a11",
+    "experiments/s07_char_only_v1_20261118_01/config.json": "9243813d3d7fc46a0491d6ea2dd20fc4b9c248ae3bfc2d8846c5932f6add27fd"
+  },
+  "baseline_config_sha256": "d3c09ebbef7332db9625922fed3544c6fbd28dfde78d9832e5855566f998a63f",
+  "extraction": {
+    "input_and_labels": "src/ntl/data.py + labels.py",
+    "model_and_config": "src/ntl/features.py + models.py",
+    "fit_prediction_submission": "src/ntl/submission.py"
+  },
+  "template_generator": "scripts/build_submission_notebook.py",
+  "candidate": "char-only",
+  "reference_model_run_id": "s07_char_only_v1_20261118_01",
+  "kaggle_score": null,
+  "notebook_sha256": "cde8da199f56e8f935caefd5278f3530c664e79ba3c327afc6328b37e3bd063c"
+}

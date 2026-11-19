@@ -1,0 +1,10 @@
+{
+  "decision": "retain B4 as independently useful morphology branch candidate; B3/B3-C retain higher local single-model scores",
+  "evidence": "B4-B2 positive in all folds, conditional prompt CI above zero, sparse9/10; B4-B3-C lower",
+  "B5": "fixed Char+Style+Morphology from B3-C, add morphology only; no Word, no B5-C; not run",
+  "B6_B7": "unchanged",
+  "default": "B0 unchanged",
+  "word_interpretation": "not proven useful in existing experiments, not proven harmful; one branches field restores it",
+  "oracle": "diagnostic only; not fusion performance or a B5 guarantee",
+  "kaggle_submission": false
+}

@@ -1,0 +1,7 @@
+{
+  "timing": "analysis/acceptance source archived after fitting, not presented as training-start source",
+  "sha256": {
+    "analyze_b3.py": "10af6bbf9b45376fde9d534fa009fa455f5c08b8745177b829b11f65daf43faf",
+    "check_b3.py": "c1b07585c9a43faa582637cc65f6aebdef1ae93342c8a4ff4921a0f3fde6780b"
+  }
+}

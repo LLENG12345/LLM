@@ -1,0 +1,29 @@
+{
+  "combo": {
+    "run_id": "s06b_equivalence_cv_20261118_01",
+    "oof_rows": 2699,
+    "score_dimensions": 18,
+    "score_type": "LinearSVC decision_function margins; aligned official class_order",
+    "oof_sha256": "b64c19d1f497f2239f26888d2dedb4690e25b950ccaeff3f279730e3bb32e864",
+    "config_sha256": "b21150192a5c09355f2aa15a58cd508363902ee199d2ab2e99961386e99f7566",
+    "full_artifact_validation": "passed"
+  },
+  "word": {
+    "run_id": "s07_word_only_v1_20261118_01",
+    "oof_rows": 2699,
+    "score_dimensions": 18,
+    "score_type": "LinearSVC decision_function margins; aligned official class_order",
+    "oof_sha256": "8417bfdd7f484340b075388f4a0b9e4a039a3550489266b2d5d562f8a6199a81",
+    "config_sha256": "62720788ed33a83fb5b4445ebf4da030786c2d87603dda6e616b0b3b475ee8f9",
+    "full_artifact_validation": "passed"
+  },
+  "char": {
+    "run_id": "s07_char_only_v1_20261118_01",
+    "oof_rows": 2699,
+    "score_dimensions": 18,
+    "score_type": "LinearSVC decision_function margins; aligned official class_order",
+    "oof_sha256": "07a5f444b5f47eda0757175abf12eede5ccf06caeac156bd1535bebf7c848842",
+    "config_sha256": "9243813d3d7fc46a0491d6ea2dd20fc4b9c248ae3bfc2d8846c5932f6add27fd",
+    "full_artifact_validation": "passed"
+  }
+}

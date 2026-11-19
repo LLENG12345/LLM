@@ -1,4 +1,4 @@
-"""Full fit and submission candidate from the validated Notebook factory; no tuning."""
+"""Full fit and submission candidate from the shared verified baseline; no tuning."""
 import argparse
 from datetime import datetime, timezone
 import hashlib
@@ -19,56 +19,11 @@ import numpy as np
 import pandas as pd
 import psutil
 
-from run_s04 import ROOT, digest, load_factory, model_config, write_json
-from check_s05 import validate_submission, write_and_verify_submission
-
-
-def fit_full_model(factory, train):
-    model = factory()
-    if hasattr(model.named_steps['classifier'], 'coef_'):
-        raise ValueError('Factory must return an unfitted Pipeline')
-    model.fit(train['text'].astype(str), train['model'])
-    return model
-
-
-def model_state_fingerprint(model):
-    checksum = hashlib.sha256()
-    for name, transform in model.named_steps['features'].transformer_list:
-        checksum.update(name.encode('utf-8'))
-        checksum.update(json.dumps(transform.vocabulary_, sort_keys=True, default=int).encode('utf-8'))
-        checksum.update(transform.idf_.tobytes())
-    for values in (model.named_steps['classifier'].coef_, model.named_steps['classifier'].intercept_):
-        checksum.update(values.tobytes())
-    return checksum.hexdigest()
-
-
-def predict_test(model, test, ns, batch_size=256):
-    ns['validate_test'](test, 'runtime test input')
-    if batch_size <= 0:
-        raise ValueError('batch_size must be positive')
-    order, classes = list(ns['class_order']), list(model.classes_)
-    if len(classes) != len(order) or set(classes) != set(order):
-        raise ValueError('Model classes differ from official labels')
-    columns = [classes.index(label) for label in order]
-    predictions, decisions = [], []
-    for start in range(0, len(test), batch_size):
-        texts = test.iloc[start:start + batch_size]['text'].astype(str)
-        predictions.extend(model.predict(texts).tolist())
-        decisions.append(model.decision_function(texts)[:, columns])
-    pred = np.asarray(predictions, dtype=object)
-    scores = np.concatenate(decisions) if decisions else np.empty((0, len(order)), dtype=float)
-    if scores.shape != (len(test), len(order)) or not np.isfinite(scores).all():
-        raise ValueError('Invalid runtime decision score matrix')
-    if len(pred) != len(test) or not set(pred).issubset(order):
-        raise ValueError('Invalid prediction labels/count')
-    return pred, scores
-
-
-def build_submission(test, predictions, labels):
-    if len(test) != len(predictions):
-        raise ValueError('Prediction count differs from test rows')
-    result = pd.DataFrame({'id': test['id'].tolist(), 'model': list(predictions)}, dtype='string')
-    return validate_submission(result, test, labels)
+from _common import ROOT, load_factory
+from ntl.io import digest, write_json
+from ntl.models import model_config
+from ntl.submission import fit_full_model, model_state_fingerprint, predict_test, build_submission
+from ntl.submission import validate_submission, write_and_verify_submission
 
 
 def main():
@@ -119,11 +74,12 @@ def main():
                 'git_status': subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT, text=True),
                 'input_sha256': {str(p.resolve()): digest(p) for p in [*ns['DATA_DIR'].glob('*'), * (ROOT / 'experiments/folds').glob('*')] if p.is_file()},
                 'baseline_artifact_sha256': {str(p.relative_to(baseline)): digest(p) for p in baseline.rglob('*') if p.is_file()},
-                'source_sha256': {}, 'execution': 'plain Python; Notebook factory reused; no Jupyter repair claimed',
+                'source_sha256': {}, 'execution': 'plain Python; shared ntl modules; no Jupyter repair claimed',
+                'purpose': 'full fit of unchanged shared baseline',
                 'sample_submission_policy': 'S02 local format example only; runtime predictions never depend on sample IDs or placeholders',
                 'serialization_note': 'Only load this project-generated trusted joblib; compatible Python/sklearn/numpy versions are required'}
     source_dir = out / 'source'; source_dir.mkdir()
-    for source in [ROOT / 'notebooks/01_baseline.ipynb', *sorted((ROOT / 'scripts').glob('*.py')), ROOT / 'requirements.txt', ROOT / 'requirements-s01.txt']:
+    for source in [ROOT / 'notebooks/01_baseline.ipynb', *sorted((ROOT / 'scripts').glob('*.py')), ROOT / 'requirements.txt', ROOT / 'requirements-s01.txt', ROOT / 'pyproject.toml', *sorted((ROOT / 'src/ntl').glob('*.py'))]:
         dest = source_dir / source.relative_to(ROOT); dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, dest); metadata['source_sha256'][str(source.relative_to(ROOT))] = digest(source)
     write_json(out / 'config.json', config); write_json(out / 'run_metadata.json', metadata)

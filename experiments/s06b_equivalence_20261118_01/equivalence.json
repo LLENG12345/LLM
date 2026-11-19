@@ -1,0 +1,25 @@
+{
+  "status": "exact_equivalence_pass",
+  "kind": "baseline refactor verification, not model improvement",
+  "cv_directory": "artifacts\\s06b_equivalence_cv_20261118_01",
+  "full_directory": "artifacts\\s06b_equivalence_full_20261118_01",
+  "oof_rows": 2699,
+  "oof_labels_equal": true,
+  "folds_and_ids_equal": true,
+  "oof_decision_scores_equal": true,
+  "oof_max_absolute_score_error": 0.0,
+  "decision_score_tolerance": 0,
+  "classification_report_recall_confusion_equal": true,
+  "metrics": {
+    "balanced_accuracy": 0.3074372358936117,
+    "accuracy": 0.30752130418673584,
+    "macro_f1": 0.29563837885578176,
+    "mean_fold_balanced_accuracy": 0.3074457215836526,
+    "std_fold_balanced_accuracy_ddof0": 0.01119196663726874
+  },
+  "test_labels_equal": true,
+  "test_scores_equal": true,
+  "test_max_absolute_score_error": 0.0,
+  "submission_contents_equal": true,
+  "kaggle_submission": "not executed"
+}

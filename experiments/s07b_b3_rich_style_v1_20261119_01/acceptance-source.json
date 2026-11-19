@@ -1,0 +1,7 @@
+{
+  "timing": "final acceptance source after fitting; training-start source remains unchanged in artifacts",
+  "source_sha256": {
+    "scripts/analyze_b3.py": "10af6bbf9b45376fde9d534fa009fa455f5c08b8745177b829b11f65daf43faf",
+    "scripts/check_b3.py": "408675e37a407931024f01a1b3a656d417f831b6bb26f2e5964b7b8e1b9d7d4f"
+  }
+}

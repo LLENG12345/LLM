@@ -1,0 +1,11 @@
+{
+  "timing": "acceptance copy after training; actual fit engine source snapshots remain in artifacts",
+  "sha256": {
+    "configs/s07b_b4_char_morphology.json": "1999b434fccf02cf22493121478832e36911bd2e39b2d3082bd2cdb13cb4b1e6",
+    "scripts/analyze_b4.py": "3cc77d92332221a706ad9e09a27068a9505453df5ee16e7ec8f2c6c414744c7b",
+    "scripts/check_b4.py": "44af2620c8c3896dc9b53d67f9a23428de61c5734609bd31af737d28c1889ab5",
+    "src/ntl/morphology.py": "dd597e722265246e18e335228b4633b8c2a586384c5857e6d3f209b266563ad5"
+  },
+  "analysis_plan_sha256": "9a7f92fe3852ce8a0e0908428a671689d39b8f724d9afa8fb8a1fc99b7b87df6",
+  "reference_fixture_sha256": "9483ec8a6a61869c1bc55b00024e63f8f1a7e5de93599caae46f48c60ccc268d"
+}

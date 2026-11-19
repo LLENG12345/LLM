@@ -1,0 +1,11 @@
+{
+  "artifacts/s06b_equivalence_cv_20261118_01/config.json": "b21150192a5c09355f2aa15a58cd508363902ee199d2ab2e99961386e99f7566",
+  "artifacts/s06b_equivalence_cv_20261118_01/metrics.json": "208db6c9953f8b92880e353dce249940f404556de697332e2bdb49c027a595fb",
+  "artifacts/s06b_equivalence_cv_20261118_01/oof_predictions.parquet": "b64c19d1f497f2239f26888d2dedb4690e25b950ccaeff3f279730e3bb32e864",
+  "artifacts/s07_word_only_v1_20261118_01/config.json": "62720788ed33a83fb5b4445ebf4da030786c2d87603dda6e616b0b3b475ee8f9",
+  "artifacts/s07_word_only_v1_20261118_01/metrics.json": "6e32bb59d505e80e24e1cbca94a779fee0a4e373d1fb30d7f33d01c5f4db9138",
+  "artifacts/s07_word_only_v1_20261118_01/oof_predictions.parquet": "8417bfdd7f484340b075388f4a0b9e4a039a3550489266b2d5d562f8a6199a81",
+  "artifacts/s07_char_only_v1_20261118_01/config.json": "9243813d3d7fc46a0491d6ea2dd20fc4b9c248ae3bfc2d8846c5932f6add27fd",
+  "artifacts/s07_char_only_v1_20261118_01/metrics.json": "cbd794632db6c8370fcdf216be329f35d2978d3eaa7787245f022d6a3934625a",
+  "artifacts/s07_char_only_v1_20261118_01/oof_predictions.parquet": "07a5f444b5f47eda0757175abf12eede5ccf06caeac156bd1535bebf7c848842"
+}

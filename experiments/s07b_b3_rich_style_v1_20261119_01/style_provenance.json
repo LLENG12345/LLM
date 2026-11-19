@@ -1,0 +1,30 @@
+{
+  "reference_commit": "e83b9e3eacbda00621034384b72f6cdea6555060",
+  "reference_notebook_sha256": "5cce55a25644ca7652f4810d8d7bf9df41890f3a69fd78e88df00977cd6dadcd",
+  "reference_functions": [
+    "style_features",
+    "rich_style",
+    "scale_style"
+  ],
+  "implementation": "independent reimplementation of the published statistics definition; no reference source vendored; reuse license not established",
+  "official_raw_comparison": {
+    "n_rows": 2699,
+    "n_features": 162,
+    "array_equal": true,
+    "max_abs_error": 0.0,
+    "raw_matrix_sha256": "583d7d9f90a86968791b50276531bafe425497868cb7b22048f9d6fc1c912cc1"
+  },
+  "intentional_api_differences": [
+    "empty batch returns shape (0,162)",
+    "non-string/2D inputs explicitly rejected; official input contract remains unchanged"
+  ],
+  "new_official_pipeline_fits": 6,
+  "formal_folds": 5,
+  "smoke_folds": 1,
+  "failed_training_retries": 0,
+  "purpose": "B0 plus rich162 only; not full teammate03 reproduction",
+  "classifiers_fitted_by_analysis_or_tests": 0,
+  "descriptive_analysis_used_for_feature_deletion_or_weight_selection": false,
+  "actual_config": "configs/s07b_b3_rich_style.json",
+  "default_baseline_changed": false
+}

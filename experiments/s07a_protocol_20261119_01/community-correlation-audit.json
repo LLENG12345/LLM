@@ -1,0 +1,9 @@
+{
+  "source": "HF README five scored rows only; rounded author claims",
+  "n_available_rows": 5,
+  "pearson_k18_public": 0.9918302943016296,
+  "pearson_k2_public": 0.9999938952576913,
+  "claimed_original_sample_count": null,
+  "claimed_original_complete_population": null,
+  "conclusion": "Does not reproduce claimed .13/.91; incomplete selective table neither validates nor refutes unknown original study; not our validation evidence"
+}

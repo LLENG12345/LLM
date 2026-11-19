@@ -1,0 +1,13 @@
+{
+  "both_correct": 926,
+  "both_wrong": 1587,
+  "b3c_corrected": 93,
+  "b3c_new_errors": 93,
+  "net_correct_gain": 0,
+  "prediction_agreement": 2276,
+  "prediction_agreement_rate": 0.8432752871433864,
+  "same_provider_errors_b3": 835,
+  "same_provider_errors_b3c": 841,
+  "cross_provider_errors_b3": 845,
+  "cross_provider_errors_b3c": 839
+}

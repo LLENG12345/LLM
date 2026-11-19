@@ -1,0 +1,6 @@
+author_submission_id,author_k18,author_k2,author_public,author_strategy
+57873164,0.338,0.33,0.33,TF-IDF smoke fallback
+57874130,0.718,0.658,0.659,multi-LLM no Llama
+57876141,0.729,0.664,0.664,Llama/OpenPool + soft postprocessing
+57889656,0.751,0.638,0.639,hard assignment no Llama
+57907202,0.738,0.665,0.665,pool-DeBERTa/Llama ensemble

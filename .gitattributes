@@ -1,3 +1,37 @@
 # Preserve hashed fold-resource bytes across Windows/Linux checkouts.
 experiments/folds/*.csv text eol=lf
 experiments/folds/*_metadata.json text eol=lf
+# Frozen evaluation resources have raw-file SHA-256 identities as well.
+experiments/evaluation_masks/**/*.csv text eol=lf
+experiments/evaluation_masks/**/*.json text eol=lf
+# Historical plan is an exact byte snapshot, including its original line endings.
+docs/history/工作计划_v1.1_20261119.md -text
+# Keep the new evaluation bundle's recorded source hashes portable.
+experiments/s07a_protocol_20261119_01/** text eol=lf
+src/ntl/evaluation.py text eol=lf
+scripts/run_s07a.py text eol=lf
+scripts/check_s07a.py text eol=lf
+scripts/analyze_s07.py text eol=lf
+src/ntl/labels.py text eol=lf
+# Rich-style experiment provenance and source fingerprints.
+src/ntl/style.py text eol=lf
+src/ntl/features.py text eol=lf
+src/ntl/models.py text eol=lf
+src/ntl/experiments.py text eol=lf
+scripts/check_b3.py text eol=lf
+scripts/analyze_b3.py text eol=lf
+configs/s07b_b3_rich_style.json text eol=lf
+experiments/s07b_b3_definition_v1/** text eol=lf
+experiments/s07b_b3_rich_style_v1_20261119_01/** text eol=lf
+# Char+style supplementary ablation; keep shared provenance byte identities.
+configs/s07b_b3c_char_style.json text eol=lf
+scripts/check_b3c.py text eol=lf
+scripts/analyze_b3c.py text eol=lf
+experiments/s07b_b3c_char_style_v1_20261119_01/** text eol=lf
+# Morphology source, reference fixtures and shared experiment fingerprints.
+src/ntl/morphology.py text eol=lf
+configs/s07b_b4_char_morphology.json text eol=lf
+scripts/check_b4.py text eol=lf
+scripts/analyze_b4.py text eol=lf
+experiments/s07b_b4_definition_v1/** text eol=lf
+experiments/s07b_b4_char_morphology_v1_20261119_01/** text eol=lf

@@ -9,7 +9,7 @@ import nbformat
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGET = ROOT / 'notebooks/99_submission.ipynb'
-BASELINE = ROOT / 'artifacts/s04_baseline_v1_20261118_01'
+BASELINE = ROOT / 'experiments/s04_baseline_v1_20261118_01'
 
 
 def sha256(path):
@@ -39,6 +39,7 @@ import os
 import platform
 import time
 import warnings
+from copy import deepcopy
 import numpy as np
 import pandas as pd
 import pyarrow
@@ -51,78 +52,47 @@ runtime_versions = {name: importlib.metadata.version(name)
 print('ENVIRONMENT', json.dumps({'python': platform.python_version(), **runtime_versions}))
 '''
 
-PATHS = '''# Explicit overrides are for controlled local runs or a verified Kaggle mount.
-# Leave both unset for the normal Kaggle submission.
-KAGGLE_DATA = Path('/kaggle/input/competitions/name-that-llm')
-REQUIRED_DATA_FILES = ('train.csv', 'test.csv')
-
-def resolve_submission_data(explicit_dir=None):
-    def missing(directory):
-        return [name for name in REQUIRED_DATA_FILES if not (directory / name).is_file()]
-    if explicit_dir is not None:
-        if not str(explicit_dir).strip():
-            raise ValueError('NAME_THAT_LLM_DATA_DIR cannot be empty')
-        directory = Path(explicit_dir).expanduser().resolve()
-        absent = missing(directory)
-        if absent:
-            raise FileNotFoundError(f'Explicit data directory {directory}: missing {absent}; no fallback used')
-        return directory
-    if not missing(KAGGLE_DATA):
-        return KAGGLE_DATA.resolve()
-    # A mount can differ between notebook environments. Do not guess among datasets.
-    input_root = Path('/kaggle/input')
-    candidates = sorted({p.parent.resolve() for p in input_root.rglob('train.csv')
-                         if not missing(p.parent)}) if input_root.is_dir() else []
-    if len(candidates) == 1:
-        print('DISCOVERED_INPUT_PAIR; training SHA-256 will be checked:', candidates[0])
-        return candidates[0]
-    raise FileNotFoundError(
-        f'Competition inputs unavailable or ambiguous. Official candidate {KAGGLE_DATA}: '
-        f'missing {missing(KAGGLE_DATA)}; complete candidate directories={list(map(str, candidates))}. '
-        'Attach the official competition data and inspect Input; set NAME_THAT_LLM_DATA_DIR explicitly if needed.')
-
-DATA_DIR = resolve_submission_data(os.environ.get('NAME_THAT_LLM_DATA_DIR'))
-output_override = os.environ.get('NAME_THAT_LLM_OUTPUT_DIR')
-if output_override is not None and not output_override.strip():
-    raise ValueError('NAME_THAT_LLM_OUTPUT_DIR cannot be empty')
-OUTPUT_DIR = (Path(output_override).expanduser() if output_override is not None else
-              Path('/kaggle/working') if Path('/kaggle/working').is_dir() else Path.cwd()).resolve()
-print('DATA_DIR', DATA_DIR)
-print('OUTPUT_DIR', OUTPUT_DIR)
-'''
+PATHS = "DATA_DIR = resolve_submission_data(os.environ.get('NAME_THAT_LLM_DATA_DIR'))\noutput_override = os.environ.get('NAME_THAT_LLM_OUTPUT_DIR')\nif output_override is not None and not output_override.strip():\n    raise ValueError('NAME_THAT_LLM_OUTPUT_DIR cannot be empty')\nOUTPUT_DIR = (Path(output_override).expanduser() if output_override is not None else\n              Path('/kaggle/working') if Path('/kaggle/working').is_dir() else Path.cwd()).resolve()\nprint('DATA_DIR', DATA_DIR)\nprint('OUTPUT_DIR', OUTPUT_DIR)\n"
 
 
 def build():
-    research = nbformat.read(ROOT / 'notebooks/01_baseline.ipynb', as_version=4)
-    s04 = (ROOT / 'scripts/run_s04.py').read_text(encoding='utf-8')
-    s05 = (ROOT / 'scripts/run_s05.py').read_text(encoding='utf-8')
-    checker = (ROOT / 'scripts/check_s05.py').read_text(encoding='utf-8')
+    shared = ROOT / 'src/ntl'
+    data_source = (shared / 'data.py').read_text(encoding='utf-8')
+    labels_source = (shared / 'labels.py').read_text(encoding='utf-8')
+    feature_source = (shared / 'features.py').read_text(encoding='utf-8')
+    model_source = (shared / 'models.py').read_text(encoding='utf-8')
+    submission_source = (shared / 'submission.py').read_text(encoding='utf-8')
     config = json.loads((BASELINE / 'config.json').read_text(encoding='utf-8'))
-    meta = json.loads((BASELINE / 'run_metadata.json').read_text(encoding='utf-8'))
-    if meta['status'] != 'validated' or meta['mode'] != 'formal':
+    meta = json.loads((BASELINE / 'run_summary.json').read_text(encoding='utf-8'))
+    if meta['status'] != 'validated' or meta['run_id'] != 's04_baseline_v1_20261118_01':
         raise ValueError('An independently validated formal S04 baseline is required for generation')
     train_sha = next(v for k, v in meta['input_sha256'].items() if Path(k).name == 'train.csv')
-    contract = extract(research.cells[2].source, ['OFFICIAL_MODEL_LABELS', 'class_order', '_locations',
-        '_validate_fields', 'validate_train', 'validate_test', 'read_input_csv', 'file_fingerprint'])
-    factory = extract(research.cells[3].source, ['RANDOM_SEED', 'make_model'])
-    parameters = extract(s04, ['normalise', 'model_config'])
-    fitting = extract(s05, ['fit_full_model', 'model_state_fingerprint'])
-    prediction = extract(s05, ['predict_test', 'build_submission'])
-    submission = extract(checker, ['validate_submission', 'write_and_verify_submission'])
+    contract = extract(labels_source, ['OFFICIAL_MODEL_LABELS', 'class_order']) + extract(data_source,
+        ['_locations', '_validate_fields', 'validate_train', 'validate_test', 'read_input_csv', 'file_fingerprint'])
+    factory = extract(feature_source, ['_FEATURE_DEFAULTS', 'feature_defaults', 'make_features']) + extract(model_source,
+        ['RANDOM_SEED', 'baseline_config', 'resolve_config', 'make_model'])
+    parameters = extract(model_source, ['normalise', 'model_config'])
+    fitting = extract(submission_source, ['fit_full_model', 'model_state_fingerprint'])
+    prediction = extract(submission_source, ['predict_test', 'build_submission'])
+    submission = extract(submission_source, ['validate_submission', 'write_and_verify_submission'])
+    # The same public path resolver is embedded; no runtime package import.
+    path_setup = extract(data_source, ['KAGGLE_DATA', 'REQUIRED_DATA_FILES', 'resolve_submission_data'])
+    path_setup += PATHS[PATHS.index('DATA_DIR = resolve_submission_data'):]
     # Verify the actual extracted factory without reading project data or fitting.
     ns = {}; exec(IMPORTS + contract + factory + parameters, ns)
     if ns['model_config'](ns['make_model']()) != config['model_parameters']:
         raise ValueError('Extracted factory differs from formal S04 parameters')
     if list(ns['class_order']) != config['class_order'] or ns['RANDOM_SEED'] != config['random_seed']:
         raise ValueError('Extracted labels/seed differ from S04')
-    inputs = ['notebooks/01_baseline.ipynb', 'scripts/run_s04.py', 'scripts/run_s05.py',
-              'scripts/check_s05.py', 'scripts/build_submission_notebook.py']
+    inputs = ['src/ntl/' + name + '.py' for name in ('labels', 'data', 'features', 'models', 'submission')]
+    inputs.append('scripts/build_submission_notebook.py')
     provenance = {'generator': 'scripts/build_submission_notebook.py', 'baseline_run_id': meta['run_id'],
+        'stage': 'S06-B shared-package generation; not the previous 0.311 submission artifact',
         'source_sha256': {name: sha256(ROOT / name) for name in inputs},
         'baseline_config_sha256': sha256(BASELINE / 'config.json'),
-        'extraction': {'input_and_labels': '01_baseline cell 2', 'model': '01_baseline cell 3',
-            'parameter_normalisation': 'run_s04.py', 'fit_and_prediction': 'run_s05.py',
-            'submission_contract': 'check_s05.py'}}
+        'extraction': {'input_and_labels': 'src/ntl/data.py + labels.py',
+            'model_and_config': 'src/ntl/features.py + models.py',
+            'fit_prediction_submission': 'src/ntl/submission.py'}}
     cells = []
     def section(title, description, code):
         cells.append(nbformat.v4.new_markdown_cell(f'## {title}\n\n{description}'))
@@ -138,9 +108,9 @@ def build():
     section('1 依赖和环境', '使用环境已安装的依赖，不下载、不安装。打印实际版本；配置不兼容时明确失败。', IMPORTS)
     section('2 数据与输出路径',
         '优先显式 NAME_THAT_LLM_DATA_DIR，再查官方挂载；发现多个候选时要求明确指定。'
-        'Kaggle 输出目录为 /kaggle/working。本地请在新目录执行或设置 NAME_THAT_LLM_OUTPUT_DIR。', PATHS)
+        'Kaggle 输出目录为 /kaggle/working。本地请在新目录执行或设置 NAME_THAT_LLM_OUTPUT_DIR。', path_setup)
     section('3 输入契约和官方标签',
-        '标签和输入函数从研究 Notebook 提取；保留原始文本、字符串 ID 和顺序。'
+        '标签和输入函数从公共模块提取；保留原始文本、字符串 ID 和顺序。'
         '训练 SHA 是已验证数据版本检查；测试不限制行数/ID/指纹，也不读取样例占位值。',
         contract + f"\nEXPECTED_TRAIN_SHA256 = {train_sha!r}\n" + '''train_path, test_path = DATA_DIR / 'train.csv', DATA_DIR / 'test.csv'
 train_fingerprint = file_fingerprint(train_path)
@@ -154,7 +124,7 @@ test_fingerprint = file_fingerprint(test_path)
 print('INPUT_CHECKED', len(train), train['prompt_id'].nunique(), len(class_order), 'test rows', len(test))
 ''')
     section('4 创建已验证基线',
-        '唯一模型工厂来自原基线；EXPECTED_MODEL_PARAMETERS 为 S04 生成时的完整配置断言，'
+        '唯一模型工厂和配置来自公共模块；EXPECTED_MODEL_PARAMETERS 为 S04 生成时的完整配置断言，'
         '不用于另建模型。若依赖导致参数差异，停止并报告，不静默替换。',
         factory + parameters + '\nEXPECTED_MODEL_PARAMETERS = ' + repr(config['model_parameters']) + '''
 try:

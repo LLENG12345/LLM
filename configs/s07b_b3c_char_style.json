@@ -1,0 +1,11 @@
+{
+  "branches": ["char", "style"],
+  "features": {
+    "style": {
+      "weight": 0.075,
+      "clip": 5.0,
+      "dtype": "float32",
+      "definition_version": "rich162-v1"
+    }
+  }
+}

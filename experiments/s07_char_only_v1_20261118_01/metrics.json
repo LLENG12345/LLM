@@ -1,0 +1,15 @@
+{
+  "balanced_accuracy": 0.31447924434501606,
+  "accuracy": 0.3145609484994442,
+  "macro_f1": 0.3040800321272971,
+  "mean_fold_balanced_accuracy": 0.3145083014048532,
+  "std_fold_balanced_accuracy_ddof0": 0.01686478645195973,
+  "std_definition": "population standard deviation across five folds, ddof=0",
+  "total_fit_seconds": 34.97931639999297,
+  "total_predict_seconds": 3.6630896999995457,
+  "total_decision_seconds": 3.63359309999214,
+  "total_inference_seconds": 7.296682799991686,
+  "warning_count": 0,
+  "oof_rows": 2699,
+  "confusion_matrix_png": "not generated: matplotlib is not installed"
+}

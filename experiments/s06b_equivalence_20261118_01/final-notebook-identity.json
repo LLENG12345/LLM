@@ -1,0 +1,15 @@
+{
+  "all_cell_sources_exactly_equal_to_isolated_execution": true,
+  "kernelspec_equal": true,
+  "final_notebook_sha256": "cf5962076334a3ef473cce182b50be4186a1486b1ee396ec13ade200646d5b86",
+  "reason_for_byte_change": "Build-time source switched to committed lightweight S04 record; generator provenance updated; runtime cells unchanged",
+  "code_cell_sha256": {
+    "2": "5b974a8bded9deab4daa0712346caddd54b7271fac16469a257e4c8e48357f14",
+    "4": "a83259756f39137b35ff640cd5d3b6c5b3af7ab6e785d5ff4cac605bc7824c5a",
+    "6": "e6070168673158a731a353e8bc8e66d781e52d9b085da61da689e7ca28220084",
+    "8": "80c2543d4c7a7cb6252cfa707161084f4d7e770c0ec94d973afaf3fd818a641f",
+    "10": "17b8c91d38da3119d69ddb6331185a6cdee326caee973c20562a5df8e6d9e5f9",
+    "12": "f2df4b091dc2bde5e572886e8eb828d24232e93fd024f00647e8304a37baa945",
+    "14": "74b701a03454d7b9546b609e0680e656b0462a67e2e4cb80da36642d41a67574"
+  }
+}

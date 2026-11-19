@@ -1,0 +1,263 @@
+{
+  "status": "passed",
+  "stage": "S07-B/B4",
+  "run_id": "s07b_b4_char_morphology_v1_20261119_01",
+  "new_official_pipeline_fits": 6,
+  "smoke_fits": 1,
+  "formal_fits": 5,
+  "failed_training_retries": 0,
+  "classifier_fits_in_tests_analysis": 0,
+  "test_groups": 55,
+  "test_composition": {
+    "new": 13,
+    "B3_related": 34,
+    "B3C_related": 8
+  },
+  "protected_files": 1277,
+  "current_byte_identical": 1273,
+  "archived_authorized_sources": [
+    "src/ntl/features.py",
+    "src/ntl/models.py",
+    "src/ntl/experiments.py"
+  ],
+  "unexpected_changed_files": [],
+  "ledger_appended_rows": 1,
+  "criteria": [
+    {
+      "id": 1,
+      "name": "B4_definition",
+      "passed": true,
+      "evidence": "Only char+morphology in actual union"
+    },
+    {
+      "id": 2,
+      "name": "word_disabled",
+      "passed": true,
+      "evidence": "Constructor/fit spies; no Word in B4"
+    },
+    {
+      "id": 3,
+      "name": "style_disabled",
+      "passed": true,
+      "evidence": "No Style constructed in B4; Style implementation raw SHA unchanged"
+    },
+    {
+      "id": 4,
+      "name": "char_inherited_B2",
+      "passed": true,
+      "evidence": "All actual char and LinearSVC parameters exact"
+    },
+    {
+      "id": 5,
+      "name": "morphology_matches_reference",
+      "passed": true,
+      "evidence": "Actual TF-IDF parameters and .65 weight verified"
+    },
+    {
+      "id": 6,
+      "name": "mapping_correct",
+      "passed": true,
+      "evidence": "Independent Unicode character-wise mapping exact to pinned shape"
+    },
+    {
+      "id": 7,
+      "name": "boundaries_stable",
+      "passed": true,
+      "evidence": "13 boundary examples, empty/invalid/long batch and clone checks"
+    },
+    {
+      "id": 8,
+      "name": "reference_consistency",
+      "passed": true,
+      "evidence": "2699 official strings and 1112064 Unicode scalars exact; synthetic matrices exact"
+    },
+    {
+      "id": 9,
+      "name": "lowercase_trap",
+      "passed": true,
+      "evidence": "False; actual Aa/aa vocabulary entries distinct"
+    },
+    {
+      "id": 10,
+      "name": "raw_char_unmodified",
+      "passed": true,
+      "evidence": "Raw input and raw-char fit input preserved; shape gets own converted text"
+    },
+    {
+      "id": 11,
+      "name": "fold_fit_isolation",
+      "passed": true,
+      "evidence": "Fresh transformer/TF-IDF per fold, train text digest match, vocabulary+IDF unchanged after validation"
+    },
+    {
+      "id": 12,
+      "name": "disabled_legacy_behavior",
+      "passed": true,
+      "evidence": "Default/B2/B3/B3-C full get_params identical; saved OOF validated"
+    },
+    {
+      "id": 13,
+      "name": "formal_five_folds",
+      "passed": true,
+      "evidence": "One successful smoke plus five successful formal folds; no retries"
+    },
+    {
+      "id": 14,
+      "name": "oof_coverage",
+      "passed": true,
+      "evidence": "2699 unique original-order official IDs"
+    },
+    {
+      "id": 15,
+      "name": "scores_aligned",
+      "passed": true,
+      "evidence": "Finite 2699x18 scores, classes/argmax alignment verified"
+    },
+    {
+      "id": 16,
+      "name": "independent_metrics",
+      "passed": true,
+      "evidence": "BA/Acc/F1/recalls/confusion independently recomputed"
+    },
+    {
+      "id": 17,
+      "name": "frozen_sparse",
+      "passed": true,
+      "evidence": "60 model x seed scores; original50 preserved; masks untouched"
+    },
+    {
+      "id": 18,
+      "name": "primary_control_B2",
+      "passed": true,
+      "evidence": "B4-B2 primary and B4-B3-C secondary explicit in plan/provenance/report"
+    },
+    {
+      "id": 19,
+      "name": "B5_redefined",
+      "passed": true,
+      "evidence": "Char+Style+Morphology from B3-C; no Word or B5-C, not trained"
+    },
+    {
+      "id": 20,
+      "name": "B6_B7_unchanged",
+      "passed": true,
+      "evidence": "Exact plan lines equal before snapshot"
+    },
+    {
+      "id": 21,
+      "name": "history_retained",
+      "passed": true,
+      "evidence": "1273 current files unchanged, 3 exact old source archives, CSV prefix retained; B3 OOF/scores protected"
+    },
+    {
+      "id": 22,
+      "name": "default_B0",
+      "passed": true,
+      "evidence": "Full baseline config and parameters identical; no automatic promotion"
+    },
+    {
+      "id": 23,
+      "name": "data_folds_masks",
+      "passed": true,
+      "evidence": "All raw-file fingerprints and v1/v2/masks match stage-before"
+    },
+    {
+      "id": 24,
+      "name": "tests_passed",
+      "passed": true,
+      "evidence": "13 new+34 B3-related+8 B3-C-related=55; legacy exclusions explicitly replaced by current protection"
+    },
+    {
+      "id": 25,
+      "name": "git_diff_check",
+      "passed": true,
+      "evidence": "exit0 plus new-source whitespace/syntax and documentation links checked"
+    }
+  ],
+  "data_fold_mask_sha256": {
+    "data/name-that-llm/sample_submission.parquet": "ccf86796b80fd7f83d8463664603fd1208e17559abcf416f198776b819646188",
+    "data/name-that-llm/test.csv": "4545aa3a3459f4c0724f97ad5bd06c4caa3506bdfea5fab905e8203184fc0c57",
+    "data/name-that-llm/train.csv": "40a22ce8d88c5f46feb4637a099db815bef5f713ffe53e89dbe1b7b21de77707",
+    "experiments/folds/folds_v1.csv": "9e5e0f3db0a359bf314f904862a22d70db92b27c1d91eeb414d8b554e3556af7",
+    "experiments/folds/folds_v1_metadata.json": "665aa28c5d03fe2f301be041da39712f08c54779cbce6e730a343de3405a6811",
+    "experiments/folds/folds_v2.csv": "372aad22faa6de3059d1a26a78d4232199c6427e6249f92c28d9ce2dcabfdba8",
+    "experiments/folds/folds_v2_metadata.json": "f1763fd7a591dd9565452cfdc12d27f7b5a2757e4f508cecdeb1c0460e4ab35a",
+    "experiments/folds/README.md": "8bc3bd2da032cd5aa190a90d81452053c10a6457114a712ac5b3a8aa85fc4700",
+    "experiments/evaluation_masks/sparse_k2_v1/freeze-receipt.json": "87111dd1c8e238af63cb75ee1cb47eef050453c91c8f0b5947d8ca9775621264",
+    "experiments/evaluation_masks/sparse_k2_v1/masks.csv": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+    "experiments/evaluation_masks/sparse_k2_v1/metadata.json": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8"
+  },
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--name-status",
+        "--",
+        "data/name-that-llm"
+      ],
+      "exit_code": 0
+    },
+    {
+      "argv": [
+        "git",
+        "check-ignore",
+        "configs/s07b_b4_char_morphology.json",
+        "experiments/s07b_b4_char_morphology_v1_20261119_01/metrics.json",
+        "experiments/s07b_b4_definition_v1/reference_fixture.json"
+      ],
+      "exit_code": 1
+    },
+    {
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "test_proof_sha256": "8f660c732a5424fec90f9209ce250399e6299cf2b04c026c5a436584661a490c",
+  "final_checks_sha256": "8d14260d7abfc6ddbdf8937f377b93cfa041993fe5349883788bc35d7344bd15",
+  "plan_sha256": "8dfd6b8fe88ad614744c00ce332351e498e54cf194ef92180458823e272a789c",
+  "log_sha256": "67955ca258936e5bb11dcecb8c2145728307489f4e8aa9cd2b8587b20dd194f5",
+  "not_run": [
+    "B0-B3C retraining",
+    "B5/B6/B7 training",
+    "v2 model choice",
+    "complete S01-S06 training/capacity suites",
+    "old active-source byte-freeze assertions superseded by exact stage-before source archive and immutable artifact/config checks; old classifier-fit regression excluded"
+  ],
+  "word_restore": "one branches configuration field; only unfitted restore probe executed",
+  "B5_plan": "Char+Style+Morphology from B3-C only adds morphology; fixed, not run",
+  "default_changed": false,
+  "notebook_generated": false,
+  "kaggle_submitted": false,
+  "legacy_issues": [
+    "Rules",
+    "external-resource approval",
+    "tracked CSV",
+    "Jupyter",
+    "deep EDA/near duplicates",
+    "candidate Notebook generation"
+  ]
+}

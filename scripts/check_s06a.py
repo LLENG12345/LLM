@@ -32,6 +32,8 @@ sys.dont_write_bytecode = True
 directory = pathlib.Path.cwd().resolve()
 repository = pathlib.Path(sys.argv[1]).resolve()
 environment = pathlib.Path(sys.prefix).resolve()
+sys.path[:] = [p for p in sys.path if not (pathlib.Path(p).resolve().is_relative_to(repository)
+               and not pathlib.Path(p).resolve().is_relative_to(environment))]
 notebook = json.loads((directory / '99_submission.ipynb').read_text(encoding='utf-8'))
 os.environ.pop('PYTHONPATH', None)
 os.environ['NAME_THAT_LLM_DATA_DIR'] = str(directory / 'input')
@@ -215,7 +217,7 @@ def check_structure():
             ast.parse(cell.source)
             assert cell.execution_count is None and cell.outputs == []
     allowed_imports = {'pathlib', 'hashlib', 'importlib', 'json', 'os', 'platform', 'time',
-                      'warnings', 'numpy', 'pandas', 'pyarrow', 'sklearn'}
+                      'warnings', 'numpy', 'pandas', 'pyarrow', 'sklearn', 'copy'}
     for node in ast.walk(tree):
         if isinstance(node, ast.Import):
             assert all(a.name.split('.')[0] in allowed_imports for a in node.names)
@@ -225,8 +227,7 @@ def check_structure():
                       'pip install', 'sys.path', 'D:/', 'D:\\', 'C:\\', 'C:/'):
         assert forbidden not in source, forbidden
     baseline = json.loads((ROOT / 'artifacts/s04_baseline_v1_20261118_01/config.json').read_text(encoding='utf-8'))
-    research = nbformat.read(ROOT / 'notebooks/01_baseline.ipynb', as_version=4)
-    expected = extract(research.cells[3].source, ['make_model'])
+    expected = extract((ROOT / 'src/ntl/models.py').read_text(encoding='utf-8'), ['make_model'])
     actual = extract(source, ['make_model'])
     assert ast.dump(ast.parse(actual)) == ast.dump(ast.parse(expected))
     assert source.count('OFFICIAL_MODEL_LABELS =') == 1
@@ -253,7 +254,10 @@ def regressions(output):
     for name, args in jobs:
         started = time.perf_counter()
         result = subprocess.run([sys.executable, *args], cwd=ROOT,
-            env=dict(os.environ, PYTHONIOENCODING='utf-8'), capture_output=True, timeout=120)
+            env=dict(os.environ, PYTHONIOENCODING='utf-8',
+                     NAME_THAT_LLM_S02_REPORT=str(output / 's02-input-summary.json'),
+                     NAME_THAT_LLM_S03_REPORT_DIR=str(output / 's03-report')),
+            capture_output=True, timeout=120)
         (output / f'{name}.log').write_bytes(result.stdout + result.stderr)
         results[name] = {'exit_code': result.returncode, 'seconds': time.perf_counter()-started}
         assert result.returncode == 0, f'{name} failed; see its log'
@@ -263,8 +267,10 @@ def regressions(output):
 
 def integrity(checkpoint, output):
     before = json.loads(checkpoint.read_text(encoding='utf-8'))
-    current = {name: digest(ROOT / name) for name in before['hashes']}
-    assert current == before['hashes'], 'Protected files changed'
+    expected = before.get('protected_sha256', before.get('hashes'))
+    assert expected, 'Empty integrity checkpoint'
+    current = {name: digest(ROOT / name) for name in expected}
+    assert current == expected, 'Protected files changed'
     result = {'protected_files': len(current), 'all_unchanged': True, 'sha256': current}
     write_json(output / 'integrity_report.json', result)
     return result['protected_files']
@@ -275,6 +281,7 @@ def main():
     parser.add_argument('--data-dir', type=Path, default=ROOT / 'data/name-that-llm')
     parser.add_argument('--output-dir', type=Path, default=ROOT / 'artifacts/s06a/validation')
     parser.add_argument('--regressions', action='store_true')
+    parser.add_argument('--checkpoint', type=Path, default=ROOT / 'artifacts/s06a/before.json')
     args = parser.parse_args()
     out = args.output_dir.resolve(); out.mkdir(parents=True, exist_ok=False)
     try:
@@ -292,7 +299,7 @@ def main():
         assert changed['actual_parameters'] == config['model_parameters']
         rejected = isolated_case('changed-training-rejected', out, args.data_dir.resolve(), 'changed-train')
         regression = regressions(out) if args.regressions else {'status': 'not executed'}
-        count = integrity(ROOT / 'artifacts/s06a/before.json', out)
+        count = integrity(args.checkpoint.resolve(), out)
         diff = subprocess.run(['git', 'diff', '--check'], cwd=ROOT, capture_output=True)
         (out / 'diff-check.log').write_bytes(diff.stdout + diff.stderr)
         assert diff.returncode == 0

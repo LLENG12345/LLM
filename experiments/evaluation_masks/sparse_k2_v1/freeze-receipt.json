@@ -1,0 +1,11 @@
+{
+  "mask_sha256": "c1c28dcfd25f8e22479a73a851bb7ed1b73be7e13d112a0d6498dff2bd6fe19f",
+  "metadata_sha256": "0a623fe8fa24fa28a6d138af2491cb04e7288363266778760ae56d50da900ff8",
+  "train_path": "data/name-that-llm/train.csv",
+  "fold_path": "experiments/folds/folds_v1.csv",
+  "fold_metadata_sha256": "665aa28c5d03fe2f301be041da39712f08c54779cbce6e730a343de3405a6811",
+  "folds_v2_sha256": "372aad22faa6de3059d1a26a78d4232199c6427e6249f92c28d9ce2dcabfdba8",
+  "folds_v2_metadata_sha256": "f1763fd7a591dd9565452cfdc12d27f7b5a2757e4f508cecdeb1c0460e4ab35a",
+  "reproduction_source_final_sha256": "caf5c7d326fe31cd64d72e5e32edb8aef370e1282974b940a7dd7a702929f2d7",
+  "receipt_purpose": "Additional provenance; original masks and metadata remain untouched after freeze"
+}

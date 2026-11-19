@@ -1,0 +1,170 @@
+# S07-B/B3 丰富写作风格增量实验
+
+2026-11-19。正式 run_id：`s07b_b3_rich_style_v1_20261119_01`；对应冒烟：`s07b_b3_rich_style_v1_smoke_20261119_01`。仅在B0添加162维风格；不包含形态、ExtraTrees、融合或Char+Style额外训练。
+
+## 结论
+
+完整OOF BA=0.377444693，Accuracy=0.377547240，Macro F1=0.364326823。相对B0增加7.000746个百分点，相对B2增加6.296545个百分点；5/5折优于二者。保留B3为优先研究候选，默认仍B0，尚无B3公榜成绩。
+
+## 来源、162维与计算规则
+
+方法来自[固定03源码](https://github.com/051019zhao/LLM/blob/e83b9e3eacbda00621034384b72f6cdea6555060/notebooks/03_optimized_submission.ipynb)的style_features/rich_style/scale_style。未见该tree明确复用许可，因此独立编写统计实现，不发布参考源码；本地只执行已审读、白名单提取的统计函数作数值oracle，不执行Notebook训练。12条合成文本及官方2699×162原始值array_equal，max_abs_error=0。不能由此声称复现整个03模型或其公榜。
+
+| 部分 | 维数 | 顺序/规则 |
+| --- | ---: | --- |
+| 基础统计 | 7 | 字符log1p、安全词数log1p、词长mean/std、句子词数mean/std、type/token |
+| 正则率 | 18 | 组合标点、引号、dash、括号、Markdown/换行/列表、数字、ASCII大写、代词及连接词模式 |
+| 功能词 | 81 | 固定词表，每100个安全词的频率 |
+| 标点率 | 25 | 固定字符序列，按每100词计数 |
+| 标点存在 | 25 | 同一字符序列的0/1存在标志 |
+| 附加统计 | 6 | 句子词数median/首句/尾句、长词≥8/短词≤3/Hapax比例 |
+
+完整顺序以ntl.style.STYLE_FEATURE_NAMES为唯一代码定义，名称/分组见[清单](../s07b_b3_definition_v1/feature_catalog.csv)。token正则为边界内Unicode词字符加弯/直单引号；词频统计临时lower，不覆盖原文；句子按参考的句末标点+空白/末尾切分。std为ddof=0；分母max(token数,1)，Hapax为只出现一次的词类型数/安全token数。大写模式仅ASCII[A-Z]，不是完整Unicode大写计数。
+
+空文本、纯空白、数字、标点、Unicode均输出有限float32；空文本log安全词数项为log(2)。零行批次返回0×162、非字符串/二维输入明确拒绝，为参考API以外的扩展。提取只读文本，不使用id/prompt/model，原大小写/标点/空格/换行不改写。
+
+## 缩放与实际模型配置
+
+每折新Pipeline/新RichStyleTransformer：raw162→训练折StandardScaler(with_mean/std=True)→clip[-5,5]→FeatureUnion权重.075。fit_text_sha256及n_samples_seen_逐折匹配对应训练文本，均值/方差/scale独立重算一致；验证仅transform。没有用全量数据提前拟合scaler，没有缓存学习过的转换器。
+
+Word保持(1,2)/min_df2/40k，Char保持(2,5)/min_df2/80k；均为float32、sublinear_tf、lowercase、l2、IDF/smooth_IDF，max_df1.0。LinearSVC保持C1、balanced、max_iter3000、seed20261118及全部其他B0参数。实际get_params逐项比较，默认B0/B1/B2未增加style键，完全相同。风格仅B3显式开启，Word/Char权重仍1。
+
+## 实际命令与拟合次数
+
+```powershell
+.\.venv\Scripts\python.exe scripts/check_b3.py
+.\.venv\Scripts\python.exe scripts/run_experiment.py --mode smoke --run-id s07b_b3_rich_style_v1_smoke_20261119_01 --config configs/s07b_b3_rich_style.json --purpose style_feature_increment --data-dir data/name-that-llm
+.\.venv\Scripts\python.exe scripts/run_experiment.py --mode formal --run-id s07b_b3_rich_style_v1_20261119_01 --smoke-run s07b_b3_rich_style_v1_smoke_20261119_01 --config configs/s07b_b3_rich_style.json --purpose style_feature_increment --data-dir data/name-that-llm
+.\.venv\Scripts\python.exe scripts/analyze_b3.py
+.\.venv\Scripts\python.exe scripts/check_b3.py --formal --regressions
+git diff --check
+```
+
+共6次官方Pipeline拟合：1次冒烟+5次正式，0次失败/重试。冒烟fold1=0.368518519，2159训练/540验证、120/30 prompt、18类/18维；fit=8.336172s，推理+decision=2.028725s。测试另有合成特征转换器及训练折scaler审计重算，不新增分类器拟合；所有测试/分析阻断LinearSVC.fit。冒烟不登记实验CSV。
+
+## B0—B3完整指标
+
+| model | balanced_accuracy | accuracy | macro_f1 | ba_minus_b0_pp |
+| --- | --- | --- | --- | --- |
+| B0 Word+Char | 0.307437 | 0.307521 | 0.295638 | 0.000000 |
+| B1 Word | 0.262612 | 0.262690 | 0.248365 | -4.482476 |
+| B2 Char | 0.314479 | 0.314561 | 0.304080 | 0.704201 |
+| B3 Word+Char+Style | 0.377445 | 0.377547 | 0.364327 | 7.000746 |
+
+B3五折BA均值=0.377432950，总体std(ddof=0)=0.019084648。汇总OOF与折均值区别保留。
+
+| fold | b3 | char | combo | word |
+| --- | --- | --- | --- | --- |
+| 1 | 0.368519 | 0.305556 | 0.296296 | 0.231481 |
+| 2 | 0.368519 | 0.287037 | 0.292593 | 0.262963 |
+| 3 | 0.387037 | 0.318519 | 0.312963 | 0.261111 |
+| 4 | 0.409259 | 0.325926 | 0.322222 | 0.277778 |
+| 5 | 0.353831 | 0.335504 | 0.313155 | 0.279693 |
+
+B3−B0是风格分支的受控增量；B3−B2还同时包含Word分支差异，不能把全部差值解释为风格的独立贡献。拼接也改变向量规模，结论针对当前拼接/正则设置。
+
+## 十组冻结稀疏评价
+
+| model | balanced_accuracy_mean | balanced_accuracy_std_ddof0 | balanced_accuracy_min | balanced_accuracy_max |
+| --- | --- | --- | --- | --- |
+| combo | 0.307500 | 0.028259 | 0.264930 | 0.353169 |
+| word | 0.256880 | 0.027313 | 0.196096 | 0.295105 |
+| char | 0.323946 | 0.030941 | 0.277591 | 0.362450 |
+| b3 | 0.380641 | 0.026832 | 0.343032 | 0.426031 |
+
+每组300条/150 prompt/18类，沿用S07-A原10seed和同一mask SHA，不重抽。旧三组稀疏指标与原记录误差≤1e-15。B3在10/10组高于B0/B2，排序均B3>Char>组合>Word；只算汇总18类BA，不平均单折缺类BA。种子波动不是独立实验标准误，不能推断与公榜更相关。
+
+## 类别召回与错误变化
+
+| label | combo | b3 | b3_minus_b0_pp | char | b3_minus_b2_pp |
+| --- | --- | --- | --- | --- | --- |
+| claude-fable-5 | 0.080537 | 0.100671 | 2.013423 | 0.093960 | 0.671141 |
+| claude-opus-4-6 | 0.340000 | 0.486667 | 14.666667 | 0.406667 | 8.000000 |
+| claude-opus-4-8 | 0.213333 | 0.240000 | 2.666667 | 0.246667 | -0.666667 |
+| claude-opus-5 | 0.606667 | 0.666667 | 6.000000 | 0.620000 | 4.666667 |
+| claude-sonnet-5 | 0.266667 | 0.380000 | 11.333333 | 0.233333 | 14.666667 |
+| gemini-3.1-pro-preview | 0.740000 | 0.806667 | 6.666667 | 0.726667 | 8.000000 |
+| gemini-3.6-flash | 0.433333 | 0.420000 | -1.333333 | 0.386667 | 3.333333 |
+| gemini-3.7-flash | 0.340000 | 0.440000 | 10.000000 | 0.393333 | 4.666667 |
+| gemini-3.8-flash | 0.280000 | 0.413333 | 13.333333 | 0.326667 | 8.666667 |
+| glm-5.3 | 0.140000 | 0.206667 | 6.666667 | 0.140000 | 6.666667 |
+| glm-5.3-flash | 0.146667 | 0.200000 | 5.333333 | 0.173333 | 2.666667 |
+| gpt-5.5 | 0.253333 | 0.326667 | 7.333333 | 0.266667 | 6.000000 |
+| gpt-5.6-luna | 0.246667 | 0.340000 | 9.333333 | 0.266667 | 7.333333 |
+| gpt-5.6-sol | 0.140000 | 0.180000 | 4.000000 | 0.146667 | 3.333333 |
+| gpt-5.6-terra | 0.253333 | 0.260000 | 0.666667 | 0.253333 | 0.666667 |
+| gpt-6-astra | 0.493333 | 0.620000 | 12.666667 | 0.466667 | 15.333333 |
+| kimi-k3 | 0.300000 | 0.246667 | -5.333333 | 0.213333 | 3.333333 |
+| qwen3.8-max | 0.260000 | 0.460000 | 20.000000 | 0.300000 | 16.000000 |
+
+16类相对B0提升，Gemini3.6由65/150→63/150、Kimi45/150→37/150下降。Qwen39→69(+20pp)、Opus4.6 51→73(+14.667pp)、Gemini3.8 42→62(+13.333pp)、Astra74→93(+12.667pp)提升较多。弱类Fable12→15（支持149）、Sol21→27、GLM21→31、GLM Flash22→30、Opus4.8 32→36；它们仍较难，不能把少数正确数变化讲成稳定机制。
+
+Gemini3.8→3.7错误47→43，反向41→42；3.7→3.6为32→17。Sol→Luna34→32、反向18→20，Luna→Terra26→16、Terra→Luna26→21。部分改善、部分反向恶化；全部306个非对角方向在confusion_changes.csv。
+
+共同正确651、仅B0正确/新增错误179、仅B3正确/修正368、共同错误1501；净增189条正确，B0总830、B3总1019。同厂商错误914→835，跨厂商955→845；更改预测1236条。ID级变化不含原文，见error_transition_ids.csv。
+
+按150个prompt配对Bootstrap5000次、seed20261118，B3−B0的条件95%区间[.053706127,.086296421]；B3−B2为[.044814815,.081116083]。仅描述当前固定OOF，不重训，不模拟CV重叠训练依赖，不等于独立测试或公榜收益保证。
+
+## 风格特征的实际行为
+
+全量描述分析只作研究，不进入fit或删特征/调权重。9项全零：bold-pair、backtick/newline/list/heading模式率，反引号/换行字符率及其存在标志；31项零率≥99%，包含这9项。StandardScaler对零方差列scale=1，保持162维，没有删除列。完整分位数、范围、零率、IQR异常计数在style_descriptive.csv。句子词数相关项原始最大225；统计含简单句切分及长文本影响，不据此清理记录。
+
+与字符长度|Pearson|≥.7的项目：
+
+| feature | pearson_char_length | pearson_word_count |
+| --- | --- | --- |
+| log1p_char_count | 0.973237 | 0.962176 |
+| log1p_safe_word_count | 0.960578 | 0.973910 |
+| type_token_ratio | -0.732425 | -0.799760 |
+
+类别均值示例（观察关联，非因果或特征重要性）：
+
+| feature | lowest_class | lowest_mean | highest_class | highest_mean |
+| --- | --- | --- | --- | --- |
+| word_length_mean | claude-opus-5 | 5.019029 | gemini-3.7-flash | 5.928834 |
+| sentence_word_count_mean | gemini-3.1-pro-preview | 20.285245 | claude-opus-4-6 | 27.581593 |
+| pattern_comma_semicolon_colon_per100words | gemini-3.1-pro-preview | 7.876063 | qwen3.8-max | 12.579894 |
+| pattern_curly_quote_per100words | claude-fable-5 | 0.000000 | gpt-5.6-sol | 1.168392 |
+| pattern_digit_per100words | gemini-3.8-flash | 0.127618 | glm-5.3 | 0.683951 |
+| function_the_per100words | claude-sonnet-5 | 4.083778 | claude-opus-5 | 6.053956 |
+
+prompt关联较强的示例：
+
+| feature | eta2_prompt_descriptive | eta2_model_descriptive |
+| --- | --- | --- |
+| pattern_personal_pronoun_per100words | 0.667430 | 0.018597 |
+| function_we_per100words | 0.576199 | 0.012296 |
+| function_you_per100words | 0.565317 | 0.014218 |
+| word_length_std | 0.549986 | 0.121020 |
+| word_length_mean | 0.546275 | 0.185634 |
+
+代词、功能词和词长明显受prompt/题材/体裁影响；eta²仅描述分组解释方差，不证明能跨未见prompt识别模型。标点在某些类为零不能推出其永远不生成。暂记后续“长度依赖、主题混杂、稀疏格式特征外推”假设，本轮不据这些表选特征或修改.075。
+
+## 成本与实测特征宽度
+
+| model | total_fit_seconds | total_predict_seconds | total_decision_seconds | total_inference_seconds | peak_process_mib |
+| --- | --- | --- | --- | --- | --- |
+| combo | 38.291958 | 3.887045 | 4.138824 | 8.025870 | 391.097656 |
+| word | 4.216902 | 0.383802 | 0.367608 | 0.751411 | 224.613281 |
+| char | 34.979316 | 3.663090 | 3.633593 | 7.296683 | 359.765625 |
+| b3 | 41.730264 | 5.573639 | 5.017571 | 10.591209 | 407.257812 |
+
+| fold | word_actual | char_actual | style_actual | b3_actual | b0_derived | added_width |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | 40000 | 80000 | 162 | 120162 | 120000 | 162 |
+| 2 | 39934 | 80000 | 162 | 120096 | 119934 | 162 |
+| 3 | 40000 | 80000 | 162 | 120162 | 120000 | 162 |
+| 4 | 40000 | 80000 | 162 | 120162 | 120000 | 162 |
+| 5 | 40000 | 80000 | 162 | 120162 | 120000 | 162 |
+
+B3相对历史B0：fit约+3.438307s、predict+decision约+2.565340s、进程生命周期峰值约+16.160156MiB。采集时段不同，不作受控硬件速度结论；峰值不是每折独立峰值。Word/Char各折词表宽度与历史单支实测相同，style实际162，B0宽度仍标明由同折支路推导。告警0。
+
+## 验收、产物与下一步
+
+最终34组检查通过（14项B3+7项旧消融+13项协议）；保留原测试文件，只在B3回归入口不运行一项旧合成分类器fit和一项冻结“开发前活动源文件字节”的旧阶段断言。后者由891项当前阶段保护、三个旧源文件逐字存档、默认get_params严格相同及真实历史产物校验替代，不放宽数据/折/OOF校验。最终验收清单和命令日志另存final-acceptance.json；未重训B0—B2或运行v2。
+
+artifacts正式目录保存完整2699×18 OOF、配置、输入/源码SHA、逐折split/metrics/warnings/style审计；本目录共享分类报告/召回/两种混淆矩阵、资源、十组稀疏、错误变化、特征描述与来源。固定特征名称/合成oracle在experiments/s07b_b3_definition_v1。分析/最终检查源码按实际在训练后的归档时间标记，不冒充训练开始时快照。
+
+本轮不重建提交Notebook。旧99保持已验收B0原字节，新增工厂使当前源指纹不同，因此生成器--check旧文件可能报来源差异；只读build/语法探针通过，不等于Kaggle运行。未来B3自包含生成器需嵌入style常量/名称/函数/类、补re/Counter/StandardScaler/BaseEstimator/TransformerMixin/check_is_fitted导入，消除.style相对导入并冻结B3配置，校验完整get_params及独立离线执行。没有生成候选、全量训练或提交。
+
+建议保留B3为当前优先研究候选，正式默认B0和既有.311提交记录保持。下一轮优先独立Char+Style对照：从B3只移除Word，并与B2比较风格增量；才能判断增强后Word是否有价值。随后再做B4形态。两项均需新授权，本轮未实施。Rules/资源准入、已跟踪CSV、Jupyter、深入EDA/近重复及旧Char生成脚本缺失继续保留。

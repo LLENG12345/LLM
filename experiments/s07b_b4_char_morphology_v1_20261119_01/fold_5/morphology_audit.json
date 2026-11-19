@@ -1,0 +1,14 @@
+{
+  "definition_version": "shape03-v1",
+  "n_fit_samples": 2160,
+  "raw_fit_text_sha256": "06030fceb1491d9325c7603a456013006778dd4246b4597974db41baed74fef2",
+  "converted_fit_text_sha256": "22a6bb603801d65ce9da3b8ae4133666de67ca55087ac840223b7be76988e2d5",
+  "vocabulary_size": 2768,
+  "idf_dtype": "float32",
+  "weight": 0.65,
+  "contains_uppercase_A": true,
+  "contains_lowercase_a": true,
+  "learned_state_sha256": "4766abbb7393e1d20987327b9b6b3642b775bc460990c6b808759ab35fa535a5",
+  "vocabulary_idf_unchanged_after_validation": true,
+  "df_origin": "derived by inverse smoothed-IDF formula and integer rounding; not raw term frequency"
+}

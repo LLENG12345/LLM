@@ -1,0 +1,18 @@
+{
+  "frozen_utc": "2026-11-19T02:57:12.041797+00:00",
+  "new_model": "B3-C; only remove Word from B3",
+  "bootstrap_seed": 20261118,
+  "bootstrap_repeats": 5000,
+  "bootstrap_unit": "prompt",
+  "interval": "paired conditional percentile 95%",
+  "primary_contrast": "BA(B3-C)-BA(B3)",
+  "factor_contrasts": [
+    "A=B0-B2",
+    "B=B3-B3C",
+    "C=B3-B0",
+    "D=B3C-B2",
+    "interaction=B-A"
+  ],
+  "evaluation": "full OOF primary; all ten pre-existing sparse masks supplementary",
+  "seed_or_mask_selection_by_score": false
+}

@@ -1,0 +1,201 @@
+fold,kind,index,ngram,idf,document_frequency_from_smoothed_idf
+1,high_document_frequency,267, a,1.0,2159
+1,high_document_frequency,307, aa,1.0,2159
+1,high_document_frequency,360, aaa,1.0,2159
+1,high_document_frequency,361, aaa ,1.0,2159
+1,high_document_frequency,368, aaa a,1.0,2159
+1,high_document_frequency,385, aaaa,1.0,2159
+1,high_document_frequency,396, aaaaa,1.0,2159
+1,high_document_frequency,1356,Aa,1.0,2159
+1,high_document_frequency,1515,a ,1.0,2159
+1,high_document_frequency,1669,a a,1.0,2159
+1,high_document_frequency,1697,a aa,1.0,2159
+1,high_document_frequency,1722,a aaa,1.0,2159
+1,high_document_frequency,1730,a aaaa,1.0,2159
+1,high_document_frequency,2018,aa,1.0,2159
+1,high_document_frequency,2019,aa ,1.0,2159
+1,high_document_frequency,2102,aa a,1.0,2159
+1,high_document_frequency,2120,aa aa,1.0,2159
+1,high_document_frequency,2130,aa aaa,1.0,2159
+1,high_document_frequency,2283,aaa,1.0,2159
+1,high_document_frequency,2284,aaa ,1.0,2159
+1,low_document_frequency,2," ""A ",7.5792513,2
+1,low_document_frequency,3," ""A a",7.5792513,2
+1,low_document_frequency,4," ""A aa",7.5792513,2
+1,low_document_frequency,24, 'aaaa,7.5792513,2
+1,low_document_frequency,26, (0,7.5792513,2
+1,low_document_frequency,27, (0.,7.5792513,2
+1,low_document_frequency,28, (0.0,7.5792513,2
+1,low_document_frequency,29, (0.00,7.5792513,2
+1,low_document_frequency,45, *aa*,7.5792513,2
+1,low_document_frequency,46, *aa* ,7.5792513,2
+1,low_document_frequency,51, + a,7.5792513,2
+1,low_document_frequency,52, + a ,7.5792513,2
+1,low_document_frequency,53, + a a,7.5792513,2
+1,low_document_frequency,63," 0, 0 ",7.5792513,2
+1,low_document_frequency,66," 0, A",7.5792513,2
+1,low_document_frequency,67," 0, Aa",7.5792513,2
+1,low_document_frequency,86, 0/,7.5792513,2
+1,low_document_frequency,87, 0/0,7.5792513,2
+1,low_document_frequency,88, 0/0 ,7.5792513,2
+1,low_document_frequency,89, 0/0 a,7.5792513,2
+2,high_document_frequency,270, a,1.0,2159
+2,high_document_frequency,317, aa,1.0,2159
+2,high_document_frequency,374, aaa,1.0,2159
+2,high_document_frequency,375, aaa ,1.0,2159
+2,high_document_frequency,382, aaa a,1.0,2159
+2,high_document_frequency,401, aaaa,1.0,2159
+2,high_document_frequency,412, aaaaa,1.0,2159
+2,high_document_frequency,1391,Aa,1.0,2159
+2,high_document_frequency,1549,a ,1.0,2159
+2,high_document_frequency,1704,a a,1.0,2159
+2,high_document_frequency,1737,a aa,1.0,2159
+2,high_document_frequency,1763,a aaa,1.0,2159
+2,high_document_frequency,1773,a aaaa,1.0,2159
+2,high_document_frequency,2069,aa,1.0,2159
+2,high_document_frequency,2070,aa ,1.0,2159
+2,high_document_frequency,2155,aa a,1.0,2159
+2,high_document_frequency,2176,aa aa,1.0,2159
+2,high_document_frequency,2185,aa aaa,1.0,2159
+2,high_document_frequency,2351,aaa,1.0,2159
+2,high_document_frequency,2352,aaa ,1.0,2159
+2,low_document_frequency,8," ""A'",7.5792513,2
+2,low_document_frequency,9," ""A'a",7.5792513,2
+2,low_document_frequency,10," ""A'aa",7.5792513,2
+2,low_document_frequency,24, 'a,7.5792513,2
+2,low_document_frequency,25, 'aa,7.5792513,2
+2,low_document_frequency,26, 'aaa,7.5792513,2
+2,low_document_frequency,27, 'aaaa,7.5792513,2
+2,low_document_frequency,29, (0,7.5792513,2
+2,low_document_frequency,30, (0.,7.5792513,2
+2,low_document_frequency,31, (0.0,7.5792513,2
+2,low_document_frequency,32, (0.00,7.5792513,2
+2,low_document_frequency,48, *aa*,7.5792513,2
+2,low_document_frequency,49, *aa* ,7.5792513,2
+2,low_document_frequency,50, *aaa,7.5792513,2
+2,low_document_frequency,54, + a ,7.5792513,2
+2,low_document_frequency,55, + a a,7.5792513,2
+2,low_document_frequency,65," 0, 0 ",7.5792513,2
+2,low_document_frequency,68," 0, A",7.5792513,2
+2,low_document_frequency,69," 0, Aa",7.5792513,2
+2,low_document_frequency,88, 0/,7.5792513,2
+3,high_document_frequency,247, a,1.0,2159
+3,high_document_frequency,283, aa,1.0,2159
+3,high_document_frequency,334, aaa,1.0,2159
+3,high_document_frequency,335, aaa ,1.0,2159
+3,high_document_frequency,341, aaa a,1.0,2159
+3,high_document_frequency,361, aaaa,1.0,2159
+3,high_document_frequency,372, aaaaa,1.0,2159
+3,high_document_frequency,1282,Aa,1.0,2159
+3,high_document_frequency,1446,a ,1.0,2159
+3,high_document_frequency,1588,a a,1.0,2159
+3,high_document_frequency,1614,a aa,1.0,2159
+3,high_document_frequency,1639,a aaa,1.0,2159
+3,high_document_frequency,1649,a aaaa,1.0,2159
+3,high_document_frequency,1937,aa,1.0,2159
+3,high_document_frequency,1938,aa ,1.0,2159
+3,high_document_frequency,2018,aa a,1.0,2159
+3,high_document_frequency,2035,aa aa,1.0,2159
+3,high_document_frequency,2045,aa aaa,1.0,2159
+3,high_document_frequency,2203,aaa,1.0,2159
+3,high_document_frequency,2204,aaa ,1.0,2159
+3,low_document_frequency,8," ""A'",7.5792513,2
+3,low_document_frequency,9," ""A'a",7.5792513,2
+3,low_document_frequency,10," ""A'aa",7.5792513,2
+3,low_document_frequency,15," ""Aaa ",7.5792513,2
+3,low_document_frequency,27, 'aaaa,7.5792513,2
+3,low_document_frequency,35, (aaa,7.5792513,2
+3,low_document_frequency,36, (aaaa,7.5792513,2
+3,low_document_frequency,44, *aa*,7.5792513,2
+3,low_document_frequency,45, *aa* ,7.5792513,2
+3,low_document_frequency,51, + a ,7.5792513,2
+3,low_document_frequency,52, + a a,7.5792513,2
+3,low_document_frequency,62," 0, 0 ",7.5792513,2
+3,low_document_frequency,64," 0, A",7.5792513,2
+3,low_document_frequency,65," 0, Aa",7.5792513,2
+3,low_document_frequency,84," 00, 0",7.5792513,2
+3,low_document_frequency,86," 00,0",7.5792513,2
+3,low_document_frequency,87," 00,00",7.5792513,2
+3,low_document_frequency,92, 000-,7.5792513,2
+3,low_document_frequency,93, 000-a,7.5792513,2
+3,low_document_frequency,97, 0000.,7.5792513,2
+4,high_document_frequency,219, a,1.0,2159
+4,high_document_frequency,246, aa,1.0,2159
+4,high_document_frequency,291, aaa,1.0,2159
+4,high_document_frequency,292, aaa ,1.0,2159
+4,high_document_frequency,298, aaa a,1.0,2159
+4,high_document_frequency,316, aaaa,1.0,2159
+4,high_document_frequency,327, aaaaa,1.0,2159
+4,high_document_frequency,518,", ",1.0,2159
+4,high_document_frequency,554,", a",1.0,2159
+4,high_document_frequency,560,", aa",1.0,2159
+4,high_document_frequency,1086,Aa,1.0,2159
+4,high_document_frequency,1201,a ,1.0,2159
+4,high_document_frequency,1327,a a,1.0,2159
+4,high_document_frequency,1345,a aa,1.0,2159
+4,high_document_frequency,1367,a aaa,1.0,2159
+4,high_document_frequency,1377,a aaaa,1.0,2159
+4,high_document_frequency,1460,"a,",1.0,2159
+4,high_document_frequency,1461,"a, ",1.0,2159
+4,high_document_frequency,1482,"a, a",1.0,2159
+4,high_document_frequency,1486,"a, aa",1.0,2159
+4,low_document_frequency,14, ',7.5792513,2
+4,low_document_frequency,15, 'a,7.5792513,2
+4,low_document_frequency,16, 'aa,7.5792513,2
+4,low_document_frequency,17, 'aaa,7.5792513,2
+4,low_document_frequency,19, (0,7.5792513,2
+4,low_document_frequency,20, (0.,7.5792513,2
+4,low_document_frequency,21, (0.0,7.5792513,2
+4,low_document_frequency,22, (0.00,7.5792513,2
+4,low_document_frequency,64, 0/,7.5792513,2
+4,low_document_frequency,65, 0/0,7.5792513,2
+4,low_document_frequency,66, 0/0 ,7.5792513,2
+4,low_document_frequency,67, 0/0 a,7.5792513,2
+4,low_document_frequency,76, 00.0,7.5792513,2
+4,low_document_frequency,77, 00.0 ,7.5792513,2
+4,low_document_frequency,83," 000, ",7.5792513,2
+4,low_document_frequency,86, 000.0,7.5792513,2
+4,low_document_frequency,90, 0000.,7.5792513,2
+4,low_document_frequency,99, = −,7.5792513,2
+4,low_document_frequency,117, A(a,7.5792513,2
+4,low_document_frequency,118," A(a,",7.5792513,2
+5,high_document_frequency,268, a,1.0,2160
+5,high_document_frequency,315, aa,1.0,2160
+5,high_document_frequency,371, aaa,1.0,2160
+5,high_document_frequency,372, aaa ,1.0,2160
+5,high_document_frequency,378, aaa a,1.0,2160
+5,high_document_frequency,398, aaaa,1.0,2160
+5,high_document_frequency,408, aaaaa,1.0,2160
+5,high_document_frequency,1321,Aa,1.0,2160
+5,high_document_frequency,1482,a ,1.0,2160
+5,high_document_frequency,1631,a a,1.0,2160
+5,high_document_frequency,1664,a aa,1.0,2160
+5,high_document_frequency,1690,a aaa,1.0,2160
+5,high_document_frequency,1700,a aaaa,1.0,2160
+5,high_document_frequency,1989,aa,1.0,2160
+5,high_document_frequency,1990,aa ,1.0,2160
+5,high_document_frequency,2071,aa a,1.0,2160
+5,high_document_frequency,2092,aa aa,1.0,2160
+5,high_document_frequency,2102,aa aaa,1.0,2160
+5,high_document_frequency,2261,aaa,1.0,2160
+5,high_document_frequency,2262,aaa ,1.0,2160
+5,low_document_frequency,8," ""A'",7.579714,2
+5,low_document_frequency,9," ""A'a",7.579714,2
+5,low_document_frequency,10," ""A'aa",7.579714,2
+5,low_document_frequency,24, 'a,7.579714,2
+5,low_document_frequency,25, 'aa,7.579714,2
+5,low_document_frequency,26, 'aaa,7.579714,2
+5,low_document_frequency,28, (0,7.579714,2
+5,low_document_frequency,29, (0.,7.579714,2
+5,low_document_frequency,30, (0.0,7.579714,2
+5,low_document_frequency,31, (0.00,7.579714,2
+5,low_document_frequency,47, *aa*,7.579714,2
+5,low_document_frequency,48, *aa* ,7.579714,2
+5,low_document_frequency,54, + a ,7.579714,2
+5,low_document_frequency,55, + a a,7.579714,2
+5,low_document_frequency,67," 0, A",7.579714,2
+5,low_document_frequency,68," 0, Aa",7.579714,2
+5,low_document_frequency,79, 0. ,7.579714,2
+5,low_document_frequency,80, 0. A,7.579714,2
+5,low_document_frequency,81, 0. Aa,7.579714,2
+5,low_document_frequency,87, 0/,7.579714,2

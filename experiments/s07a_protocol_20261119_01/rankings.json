@@ -1,0 +1,142 @@
+[
+  {
+    "seed": 20261119,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20262128,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20263137,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20264146,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20265155,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20266164,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20267173,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20268182,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20269191,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  },
+  {
+    "seed": 20270200,
+    "ranks": {
+      "char": 1.0,
+      "combo": 2.0,
+      "word": 3.0
+    },
+    "descending_ba": [
+      "char",
+      "combo",
+      "word"
+    ],
+    "ties_present": false
+  }
+]
